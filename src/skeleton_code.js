@@ -1,143 +1,74 @@
 // 메인화면
+const onPressGameStart = () => {};
 
-const onPressGameStart = () => {
-    
-}
+const onPressSetting = () => {};
 
-const onPressSetting = () => {
-    
-}
-
-
-const onPressHowTo = () => {
-    
-}
-
-const onPressCredit = () => {
-    
-}
+const onPressHowTo = () => {};
+const onPressCredit = () => {};
 
 // 옵션
+const onMusicChange = () => {};
 
-const onMusicChange = () => {
-    
-}
+const checkMusicOn = () => {};
 
-const checkMusicOn = () => {
-    
-}
+const checkMusicOff = () => {};
 
-const checkMusicOff = () => {
-    
-}
+const checkEffectSoundOn = () => {};
 
-const checkEffectSoundOn = () => {
-    
-}
+const checkEffectSoundOff = () => {};
 
-const checkEffectSoundOff = () => {
-    
-}
-
-const onCloseSetting = () => {
-    
-}
+const onCloseSetting = () => {};
 
 // 게임 방법
 
-const onCloseHowTo = () => {
-    
-}
+const onCloseHowTo = () => {};
 
 // 크레딧
 
-const onCloseCredit = () => {
-    
-}
+const onCloseCredit = () => {};
 
 // 난이도 선택
 
-const onSelectStage = (level) => {
-    
-}
-
+const onSelectStage = (level) => {};
 
 // 일반 스테이지
 
-const startGame = (level) => {
-    
-}
+const startGame = (level) => {};
 
-const onHit = () => {
-    
-}
+const onHit = () => {};
 
-const onHitNormalBlock = () => {
-    
-}
+const onHitNormalBlock = () => {};
 
-const onKillNormalBlock = () => {
-    
-}
+const onKillNormalBlock = () => {};
 
-const onHitBar = () => {
-    
-}
+const onHitBar = () => {};
 
 const onHitGround = () => {
-    // 공 나갔을 때
-}
+  // 공 나갔을 때
+};
 
-const onHitObstacleBlock = () => {
-    
-}
+const onHitObstacleBlock = () => {};
 
 // 보스 스테이지
 
-const onHitBossAttack = () => {
-    
-}
+const onHitBossAttack = () => {};
 
-const onHitBossBlock = () => {
-    
-}
+const onHitBossBlock = () => {};
 
-const onKillBossBlock = () => {
-    
-}
-
-
+const onKillBossBlock = () => {};
 
 // 보상 선택 화면
 
-const onSelectUpgrade = (UpgradeType) => {
-    
-}
-const onUpgradeDamage = (currentDamage) => {
-    
-}
-const onUpgradeBallCount = (currentBallCount) => {
-    
-}
-const onUpgradeBarLength = (currentBarLength) => {
-    
-}
-const onUpgradeHealth = (currentHealth) => {
-    
-}
-const onUpgradeBallSize = (currentBallSize) => {
-    
-}
+const onSelectUpgrade = (UpgradeType) => {};
+const onUpgradeDamage = (currentDamage) => {};
+const onUpgradeBallCount = (currentBallCount) => {};
+const onUpgradeBarLength = (currentBarLength) => {};
+const onUpgradeHealth = (currentHealth) => {};
+const onUpgradeBallSize = (currentBallSize) => {};
 
 // 중간엔딩
-const showEnding = (endingNumber) => {
-    
-}
-const onNextLevel = (currentLevel) => {
-    
-}
+const showEnding = (endingNumber) => {};
+const onNextLevel = (currentLevel) => {};
 
 // 최종엔딩, 게임오버
-const showMainMenu = () => {
-    
-}
+const showMainMenu = () => {};

@@ -1,45 +1,72 @@
 <html>
-    <head></head>
-    <body>
-        <div id="content">
-            <div id="game-scene">
-                <canvas>
+  <head>
+    <link rel="stylesheet" href="layout/screen_division.css" />
+    <link rel="stylesheet" href="layout/right_sidebar.css" />
+    <link rel="stylesheet" href="layout/reward_scene.css" />
+  </head>
+  <body>
+    <div id="game-page">
+      <div id="game-page__content-wrapper">
+        <div id="game-page__empty-sidebar"></div>
 
-                </canvas>
+        <div id="game-page__game-scene">
+          <!-- <canvas> </canvas> -->
+          <div id="game-page__reward-scene">
+            <div id="game-page__reward-scene--title">
+              <p>Stage Clear!!</p>
+              <p>보상을 선택하세요!</p>
             </div>
-            
-            <div id="sidebar">
-                <div id="user-status">
-                    <div id="heart-container"></div>
-                    <p id="user-score"></p>
-                    <p id="user-combo-count"></p>
+            <div id="game-page__reward-wrapper">
+              <div class="reward-box">
+                <p>볼 업그레이드</p>
+                <div class="reward-img-wrapper">
+                  <img
+                    src="../img/in_game/마스터볼-removebg-preview (2).png"
+                    width="100px"
+                  />
                 </div>
-                <div id="current-planet">
-                    <p>현재 탐색중</p>
-                    <div id="planet-img-wrapper">
-                        <!-- <img src="" alt=""> -->
-                    </div>
-                </div>
-            </div>
+                <p>데미지 증가</p>
+              </div>
 
-            <div id="flying-pokemon-bread">
-            </div>
-
-            <div id="reward-scene">
-                <div>
-                    <p>Stage Clear!!</p>
-                    <p>보상을 선택하세요!</p>
-                    <div id="reward-wrapper">
-                        <div class="reward-box">
-                            <p>업그레이드 종류</p>
-                            <div class="reward-img-wrapper">
-                                <!-- <img src="" alt=""> -->
-                            </div>
-                            <p>업그레이드 설명</p>
-                        </div>
-                    </div>
+              <!-- 추후에 코드 삭제하고, js로 추가, 삭제 연산 구현 -->
+              <div class="reward-box">
+                <p>체력 업그레이드</p>
+                <div class="reward-img-wrapper">
+                  <!-- <img src="" alt=""> -->
                 </div>
+                <p>업그레이드 설명</p>
+              </div>
+              <div class="reward-box">
+                <p>업그레이드 종류</p>
+                <div class="reward-img-wrapper">
+                  <!-- <img src="" alt=""> -->
+                </div>
+                <p>업그레이드 설명</p>
+              </div>
             </div>
+          </div>
         </div>
-    </body>
+
+        <div id="game-page__sidebar">
+          <div id="game-page__user-status">
+            <div id="game-page__heart-container-wrapper">하트</div>
+            <p id="game-page__user-score">스코어: 1500</p>
+            <p id="game-page__user-combo-count">Combo:</p>
+          </div>
+          <div id="game-page__current-planet">
+            <p>현재 탐색중...</p>
+            <div>
+              <img
+                src="../img/in_game/금성-removebg-preview.png"
+                width="140px"
+              />
+              <img src="../img/in_game/target.png" width="30px" />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="game-page__flying-pokemon-bread"></div>
+    </div>
+  </body>
 </html>
