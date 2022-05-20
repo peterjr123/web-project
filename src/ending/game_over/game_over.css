@@ -1,0 +1,48 @@
+.game-over__wrapper {
+    background-image: url("../../img/ending/어몽어스 우주배경.png");
+    height: 800px;
+}
+
+.game-over__dr-oak{
+    position: relative;
+    top: 200px;
+    left: 250px;
+}
+
+.game-over__img--dr-oak-img {
+    position: absolute;
+    content: url("../../img/ending/우는오박사.png");
+    height: 400px;
+    opacity: 0.7;
+}
+
+.game-over__msg--dr-oak-msg{
+    position: absolute;
+    color: white;
+    top: 100px;
+    left: 200px;
+    font-size: 30px;
+}
+
+.game-over__button--show-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 300px;
+    height: 70px;
+    font-size: 25px;
+    background-color: white;
+    border: 0;
+    border-radius: 5px;
+}
+
+.game-over__msg--game-over-message{
+    position: absolute;
+    color: white;
+    top: 15%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    font-size: 150px;
+    font-family: 'Fjalla One', sans-serif;
+}

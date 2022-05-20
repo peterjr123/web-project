@@ -2,10 +2,22 @@
 
 <head>
     <link href="game_over.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <p>GAME OVER</p>
-    <input type="button" value="메인메뉴로 돌아가기">
-    <img id="dr_oak_img">
-    <p id="dr_oak_msg">지구로 돌아가자...</p>
+    <div class="game-over">
+        <div class="game-over__wrapper">
+            <div class="game-over__dr-oak">
+                <img class="game-over__img--dr-oak-img">
+                <p class="game-over__msg--dr-oak-msg">지구로 돌아가자...</p>
+            </div>
+            
+            <div class="game-over__ui">
+                <p class="game-over__msg--game-over-message">GAME OVER</p>
+                <input type="button" value="메인메뉴로 돌아가기" class="game-over__button--show-main">
+            </div>
+        </div>
+    </div>
 </body>

@@ -3,19 +3,64 @@
     padding: 0;
 }
 
-body {
-    width: 100vw;
-    height: 100vh;
+.final-ending__wrapper {
+    background-image: url("../../img/ending/어몽어스 우주배경.png");
+    height: 800px;
 }
 
-#dr_oak_msg {
+.final-ending__pocketmon-seal {
+    position: relative;
+    top: -200px;
+    right: -200px;
+    /*초반에는 안보임*/
+}
+
+.final-ending__img--pocketmon-img {
     position: absolute;
-    top: 20%;
-    left: 30%;
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 50px;
-    line-height: 61px;
-    /* identical to box height */
+    width: 200px;
+    height: 200px;
+    z-index: 1;
+    content: url("../../img/ending/뮤.png");
+}
+
+.final-ending__img--halo-img {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    opacity: 0.8;
+    content: url("../../img/ending/후광.png");
+}
+
+.final-ending__dr-oak{
+    position: relative;
+    top: 200px;
+    left: 250px;
+}
+
+.final-ending__img--dr-oak-img {
+    position: absolute;
+    content: url("../../img/ending/오박사.png");
+    height: 400px;
+    opacity: 0.7;
+}
+
+.final-ending__msg--dr_oak_msg{
+    position: absolute;
+    color: white;
+    top: 100px;
+    left: 200px;
+    font-size: 30px;
+}
+
+.final-ending__button--show-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 300px;
+    height: 70px;
+    font-size: 25px;
+    background-color: white;
+    border: 0;
+    border-radius: 5px;
 }
