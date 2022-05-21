@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 
 <head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="mid_ending.js"></script>
+    <script src="https://unpkg.com/typeit@8.5.4/dist/index.umd.js"></script>
+
     <link href="mid_ending.css" rel="stylesheet">
 </head>
 <body>
-    <img id="pocketmon_img">
-    <p id="user_text">내가 원하는 스티커가 아니야</p> <!--내가 원하는 스티커가 아니야 출력용-->
-    <img id="next_pocketmon_img">
-    <div id="next_level_button"> <!--클릭 이벤트 추가-->
-        <img id="planet_img">
-        <p>다음 행성으로</p>
+    <div class="mid-ending">
+        <div class="mid-ending__wrapper">
+            <div class="mid-ending__pocketmon-seal">
+                <img class="mid-ending__img--pocketmon-img">
+                <img class="mid-ending__img--halo-img">
+            </div>
+
+            <div class="mid-ending__user-msg-wrapper">
+                <p class="mid-ending__user-msg"></p> <!--내가 원하는 스티커가 아니야 출력용-->
+            </div>
+            
+            <div class="mid-ending__button--show-next-level"> <!--클릭 이벤트 추가-->
+                <img class="mid-ending__img--planet-img">
+                <p class="mid-ending__msg--planet_msg">다음 행성으로</p>
+            </div>
+        </div>
+        
     </div>
-    
 </body>

@@ -1,0 +1,106 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.map {
+    background-image: url("../../img/ending/background.png");
+    height: 800px;
+}
+
+.map__wrapper {
+    position: relative;
+    width: 1200px;
+    height: 800px;
+    margin: auto;
+    
+}
+
+.map__img--mars {
+    position: absolute;
+    content: url("../../img/ending/mars.png");
+    width: 200px;
+    left: 0;
+    top: 500px;
+    z-index: 2;
+}
+
+.map__img--earth {
+    position: absolute;
+    content: url("../../img/ending/earth.png");
+    width: 200px;
+    left: 500px;
+    top: 100px;
+    transform: translate(-50%, 0);
+    z-index: 2;
+}
+
+.map__img--venus {
+    position: absolute;
+    content: url("../../img/ending/venus.png");
+    width: 200px;
+    left: 1000px;
+    top: 450px;
+    transform: translate(-50%, 0);
+    z-index: 2;
+}
+
+.map__path--mars-to-earth {
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    width: 350px;
+    height: 30px;
+    left: 130px;
+    top: 380px;
+    transform: rotate(-45deg);
+}
+
+.map__path--earth-to-venus {
+    position: absolute;
+    display: flex;
+    justify-content: flex-start;
+    width: 350px;
+    height: 30px;
+    left: 560px;
+    top: 330px;
+    transform: rotate(38deg);
+}
+
+.map__circle {
+    display: none;
+    border-radius: 50%;
+    background-color: white;
+    width: 20px;
+    height: 20px;
+    margin-left: 35px;
+}
+
+.map__img--pikachu {
+    position: absolute;
+    content: url("../../img/ending/pikachu.png");
+    width: 50px;
+    left: 100px;
+    top: 550px;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.map__img--dan {
+    position: absolute;
+    content: url("../../img/ending/dan.png");
+    width: 50px;
+    left: 500px;
+    top: 150px;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}
+
+.map__img--mu {
+    position: absolute;
+    content: url("../../img/ending/mu.png");
+    width: 50px;
+    left: 1000px;
+    top: 500px;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+}

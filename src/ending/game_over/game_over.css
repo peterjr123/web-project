@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --ti-cursor-font-size:0;
+}
+
+.game-over {
+    background-image: url("../../img/ending/background.png");
+    height: 800px;
+}
+
+.game-over__wrapper{
+    position: relative;
+    width: 1200px;
+    height: 800px;
+    margin: auto;
+}
+
+.game-over__dr-oak{
+    position: relative;
+    top: 200px;
+}
+
+.game-over__img--dr-oak-img {
+    position: absolute;
+    content: url("../../img/ending/crying_oak.png");
+    height: 400px;
+    opacity: 0.7;
+}
+
+.game-over__msg--dr-oak-msg{
+    position: absolute;
+    color: white;
+    top: 100px;
+    left: 200px;
+    font-size: 30px;
+}
+
+.game-over__button--show-main {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 300px;
+    height: 70px;
+    font-size: 25px;
+    background-color: white;
+    border: 0;
+    border-radius: 5px;
+}
+
+.game-over__msg--game-over-message{
+    position: absolute;
+    color: white;
+    top: 50%;
+    left: 50%;
+    width: 700px;
+    transform: translate(-50%, 0);
+    font-size: 150px;
+    font-family: 'Fjalla One', sans-serif;
+}
