@@ -2,15 +2,15 @@
 // 화면 지우는건 어디서??? 호출하기전? 호출 후?
 const showEnding = (endingNumber) => {
     // 난이도 1 => endingNumbe 1, 마지막 난이도 => endingNumber 3
-    if(endingNumber == 1){
+    if(endingNumber == 0){
         $(".mid-ending").show();
         $(".mid-ending__img--pocketmon-img").css("src", "../../img/ending/피카츄.png")
     }
-    else if(endingNumber == 2){
+    else if(endingNumber == 1){
         $(".mid-ending").show();
         $(".mid-ending__img--pocketmon-img").css("src", "../../img/ending/단데기.png")
     }
-    else if(endingNumber == 3){
+    else if(endingNumber == 2){
         $(".final-ending").show();
         showFinalAnimation($(".final-ending__pocketmon-seal"));
     }
@@ -36,12 +36,12 @@ const showSealAnimation = (seal) => {
 }
 
 const showFinalAnimation = (seal) => {
-    animLeftDistance = ($(window).width() * 0.6)
-    centerLeftDistance = ($(window).width() - 300) / 2;
+    animLeftDistance = ($(".final-ending__wrapper").width() * 0.7)
+    centerLeftDistance = ($(".final-ending__wrapper").width() - 300) / 2;
 
     seal
     .animate({"top" : "130px", "left": animLeftDistance}, 2000)
-    .animate({"top" : "300px", "left": centerLeftDistance}, 1000, () => {typingFinalEnding(); showSealAnimation(seal);})
+    .animate({"top" : "250px", "left": centerLeftDistance}, 1000, () => {typingFinalEnding(); showSealAnimation(seal);})
     
 }
 

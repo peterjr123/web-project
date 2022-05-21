@@ -1,20 +1,20 @@
 let currentLevel = 1;
 const showEnding = (endingNumber) => {
     // 난이도 1 => endingNumbe 1, 마지막 난이도 => endingNumber 3
-    if(endingNumber == 1){
+    if(endingNumber == 0){
         $(".mid-ending").show();
-        $(".mid-ending__img--pocketmon-img").attr("src", "../../img/ending/피카츄.png");
+        $(".mid-ending__img--pocketmon-img").attr("src", "../../img/ending/pikachu.png");
         $(".mid-ending__img--planet-img")
-        .attr("src", "../../img/ending/지구.png");
+        .attr("src", "../../img/ending/earth.png");
         showMidAnimation($(".mid-ending__pocketmon-seal"));
         currentLevel = 1;
     }
-    else if(endingNumber == 2){
+    else if(endingNumber == 1){
         $(".mid-ending").show();
-        $(".mid-ending__img--pocketmon-img").attr("src", "../../img/ending/단데기.png")
+        $(".mid-ending__img--pocketmon-img").attr("src", "../../img/ending/dan.png")
         currentLevel = 2;
     }
-    else if(endingNumber == 3){
+    else if(endingNumber == 2){
         $(".final-ending").show();
         showFinalAnimation($(".final-ending__pocketmon-seal"));
         currentLevel = 3;

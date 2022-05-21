@@ -11,8 +11,13 @@ img {
     border: 0;
 }
 
+.mid-ending {
+    background-image: url("../../img/ending/background.png");
+    height: 800px;
+}
+
 .mid-ending__wrapper {
-    background-image: url("../../img/ending/어몽어스 우주배경.png");
+    width: 1200px;
     height: 800px;
 }
 
@@ -40,7 +45,7 @@ img {
     height: 300px;
     opacity: 0.8;
     z-index: 1;
-    content: url("../../img/ending/후광.png");
+    content: url("../../img/ending/halo.png");
     transform-origin: 50% 50%;
 }
 
