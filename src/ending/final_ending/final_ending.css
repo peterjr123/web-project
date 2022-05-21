@@ -3,32 +3,43 @@
     padding: 0;
 }
 
+:root {
+    --ti-cursor-font-size:0;
+}
+
 .final-ending__wrapper {
     background-image: url("../../img/ending/어몽어스 우주배경.png");
     height: 800px;
 }
 
 .final-ending__pocketmon-seal {
-    position: relative;
-    top: -200px;
-    right: -200px;
+    position: absolute;
+    top: -300px;
+    left: 300px;
+    width: 300px;
+    height: 300px;
+    transform-origin: 50% 50%;
     /*초반에는 안보임*/
 }
 
 .final-ending__img--pocketmon-img {
+    transform-origin: 50% 50%;
     position: absolute;
-    width: 200px;
-    height: 200px;
-    z-index: 1;
+    width: 300px;
+    height: 300px;
+    z-index: 2;
     content: url("../../img/ending/뮤.png");
+    
 }
 
 .final-ending__img--halo-img {
     position: absolute;
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     opacity: 0.8;
+    z-index: 1;
     content: url("../../img/ending/후광.png");
+    transform-origin: 50% 50%;
 }
 
 .final-ending__dr-oak{
@@ -63,4 +74,20 @@
     background-color: white;
     border: 0;
     border-radius: 5px;
+}
+
+@keyframes floating {
+	
+    0%{
+        transform: translateY(-10px);
+    }
+
+    50% {
+        transform: translateY(10px);
+    }
+	
+	100% {
+        transform: translateY(-10px);
+	}
+	
 }
