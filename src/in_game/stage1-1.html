@@ -1,72 +1,84 @@
+<!DOCTYPE html>
 <html>
-  <head>
-    <link rel="stylesheet" href="layout/screen_division.css" />
-    <link rel="stylesheet" href="layout/right_sidebar.css" />
-    <link rel="stylesheet" href="layout/reward_scene.css" />
-  </head>
-  <body>
-    <div id="game-page">
-      <div id="game-page__content-wrapper">
-        <div id="game-page__empty-sidebar"></div>
+	<head>
+		<link rel="stylesheet" href="layout/screen_division.css" />
+		<link rel="stylesheet" href="layout/right_sidebar.css" />
+		<link rel="stylesheet" href="layout/reward_scene.css" />
+		<link rel="stylesheet" href="layout/game_canvas.css" />
+		<script
+			src="https://code.jquery.com/jquery-3.6.0.js"
+			integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+			crossorigin="anonymous"
+		></script>
+		<script src="page_transition.js"></script>
+	</head>
+	<body>
+		<!-- 임시 화면 전환기 -->
+		<button onclick="onStageClear()">normal stage 클리어시</button>
+		<button onclick="onSelectReward()">보상 선택 완료시</button>
+		<button onclick="onStartGame(1)">새 게임 시작하기</button>
+		<button onclick="onGameOver()">gameover인 경우</button>
+		<button onclick="onKillBossBlock()">보스 클리어시</button>
+		<div id="game-page">
+			<div id="game-page__content-wrapper">
+				<div id="game-page__empty-sidebar"></div>
 
-        <div id="game-page__game-scene">
-          <!-- <canvas> </canvas> -->
-          <div id="game-page__reward-scene">
-            <div id="game-page__reward-scene--title">
-              <p>Stage Clear!!</p>
-              <p>보상을 선택하세요!</p>
-            </div>
-            <div id="game-page__reward-wrapper">
-              <div class="reward-box">
-                <p>볼 업그레이드</p>
-                <div class="reward-img-wrapper">
-                  <img
-                    src="../img/in_game/마스터볼-removebg-preview (2).png"
-                    width="100px"
-                  />
-                </div>
-                <p>데미지 증가</p>
-              </div>
+				<div id="game-page__game-scene">
+					<canvas id="game-page__canvas"></canvas>
+					<div id="game-page__reward-scene">
+						<div id="game-page__reward-scene--title">
+							<p>Stage Clear!!</p>
+							<p>보상을 선택하세요!</p>
+						</div>
+						<div id="game-page__reward-wrapper">
+							<div class="reward-box">
+								<p>볼 업그레이드</p>
+								<div class="reward-img-wrapper" onclick="onSelectUpgrade('ball')">
+									<img src="../img/in_game/마스터볼-removebg-preview (2).png" width="100px" />
+								</div>
+								<p>데미지 증가</p>
+							</div>
 
-              <!-- 추후에 코드 삭제하고, js로 추가, 삭제 연산 구현 -->
-              <div class="reward-box">
-                <p>체력 업그레이드</p>
-                <div class="reward-img-wrapper">
-                  <!-- <img src="" alt=""> -->
-                </div>
-                <p>업그레이드 설명</p>
-              </div>
-              <div class="reward-box">
-                <p>업그레이드 종류</p>
-                <div class="reward-img-wrapper">
-                  <!-- <img src="" alt=""> -->
-                </div>
-                <p>업그레이드 설명</p>
-              </div>
-            </div>
-          </div>
-        </div>
+							<!-- 추후에 코드 삭제하고, js로 추가, 삭제 연산 구현 -->
+							<div class="reward-box">
+								<p>체력 업그레이드</p>
+								<div class="reward-img-wrapper" onclick="onSelectUpgrade('hp')">
+									<img src="./../img/in_game/heart.png" width="100px" />
+								</div>
+								<p>최대 체력 1 증가</p>
+							</div>
+							<div class="reward-box">
+								<p>바 업그레이드</p>
+								<div class="reward-img-wrapper" onclick="onSelectUpgrade('bar')">
+									<img src="./../img/in_game/stretch.png" width="120px" />
+								</div>
+								<p>바의 길이 증가</p>
+							</div>
+						</div>
+					</div>
+				</div>
 
-        <div id="game-page__sidebar">
-          <div id="game-page__user-status">
-            <div id="game-page__heart-container-wrapper">하트</div>
-            <p id="game-page__user-score">스코어: 1500</p>
-            <p id="game-page__user-combo-count">Combo:</p>
-          </div>
-          <div id="game-page__current-planet">
-            <p>현재 탐색중...</p>
-            <div>
-              <img
-                src="../img/in_game/금성-removebg-preview.png"
-                width="140px"
-              />
-              <img src="../img/in_game/target.png" width="30px" />
-            </div>
-          </div>
-        </div>
-      </div>
+				<div id="game-page__sidebar">
+					<div id="game-page__user-status">
+						<div id="game-page__heart-container-wrapper">
+							<img src="./../img/in_game/heart.png" width="60px" />
+							<img src="./../img/in_game/heart.png" width="60px" />
+							<img src="./../img/in_game/heart.png" width="60px" />
+						</div>
+						<p id="game-page__user-score">스코어: 0</p>
+						<p id="game-page__user-combo-count">Combo: 0</p>
+					</div>
+					<div id="game-page__current-planet">
+						<p>현재 탐색중...</p>
+						<div>
+							<img src="../img/in_game/금성-removebg-preview.png" width="140px" />
+							<img src="../img/in_game/target.png" width="30px" />
+						</div>
+					</div>
+				</div>
+			</div>
 
-      <div id="game-page__flying-pokemon-bread"></div>
-    </div>
-  </body>
+			<div id="game-page__flying-pokemon-bread"></div>
+		</div>
+	</body>
 </html>

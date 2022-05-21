@@ -1,45 +1,52 @@
 /* 오른쪽 sidebar */
 #game-page__sidebar {
-  display: flex;
-  flex-direction: column;
+	display: flex;
+	flex-direction: column;
 }
 #game-page__sidebar > div:nth-child(1) {
-  flex-basis: 60%;
+	flex-basis: 60%;
 }
 #game-page__sidebar > div:nth-child(2) {
-  flex-basis: 40%;
+	flex-basis: 40%;
 }
 
 #game-page__sidebar p {
-  color: white;
+	color: white;
 }
 #game-page__user-score {
-  font-size: 22px;
+	font-size: 22px;
 }
 
 #game-page__current-planet {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: flex-end;
+	padding: 30px;
 }
 #game-page__current-planet > div {
-  position: relative;
+	position: relative;
 
-  border: 1px solid #ffc000;
-  border-radius: 10px;
-  height: 150px;
-  width: 150px;
-  background-color: #fff2cc;
+	border: 1px solid #ffc000;
+	border-radius: 10px;
+	height: 150px;
+	width: 150px;
+	background-color: #fff2cc;
 }
 #game-page__current-planet img:nth-child(1) {
-  top: 5;
-  left: 5;
-  position: absolute;
+	top: 5px;
+	left: 5px;
+	position: absolute;
 }
 #game-page__current-planet img:nth-child(2) {
-  top: 35px;
-  left: 80px;
-  position: absolute;
+	position: absolute;
+	top: 35px;
+	left: 80px;
+}
+
+#game-page__heart-container-wrapper {
+	margin: 5px 10px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
 }

@@ -1,7 +1,6 @@
 /* 보상 전체 화면 */
 #game-page__reward-scene {
-  /* display: none; */
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: flex-start;
   height: 800px;
