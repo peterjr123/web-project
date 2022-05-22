@@ -1,5 +1,6 @@
 // onKillBossBlock에서 호출되어야 함
 // 화면 지우는건 어디서??? 호출하기전? 호출 후?
+/*
 const showEnding = (endingNumber) => {
     // 난이도 1 => endingNumbe 1, 마지막 난이도 => endingNumber 3
     if(endingNumber == 0){
@@ -17,8 +18,9 @@ const showEnding = (endingNumber) => {
     else{
         alert("잘못된 호출입니다.");
     }
-};
+};*/
 
+/*
 const showSealAnimation = (seal) => {
     seal
     .css({"animation":"floating 5s", "animation-iteration-count": "infinite"})
@@ -34,6 +36,7 @@ const showSealAnimation = (seal) => {
             seal.children('img:eq(1)').css({"transform": "scale(1)","opacity":"0.8"});
         });
 }
+*/
 
 const showFinalAnimation = (seal) => {
     animLeftDistance = ($(".final-ending__wrapper").width() * 0.7)
@@ -46,10 +49,11 @@ const showFinalAnimation = (seal) => {
 }
 
 // 최종엔딩, 게임오버
+/*
 const showMainMenu = () => {
     $(".final-ending").hide();
     //메인메뉴 show()
-};
+};*/
 
 const typingFinalEnding = () => {
     new TypeIt(".final-ending__msg--dr_oak_msg", {
@@ -69,11 +73,11 @@ const typingFinalEnding = () => {
 
 
 
-const init = () => {
+const initFinalEnding = () => {
     $(".final-ending__button--show-main").on("click", showMainMenu);
 };
 
 
-$(document).ready(init);
+$(document).ready(initFinalEnding);
 
 

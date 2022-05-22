@@ -5,6 +5,7 @@
 .map {
     background-image: url("../../img/ending/background.png");
     height: 800px;
+    display: none;
 }
 
 .map__wrapper {

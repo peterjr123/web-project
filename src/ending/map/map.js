@@ -1,4 +1,13 @@
 // planet 은 어떤 행성으로 가는지 나타냄
+
+const showMap = () => {
+    $(".map").show();
+};
+
+const hideMap = () => {
+    $(".map").hide();
+};
+
 const pathAnimation = (path, index, planet) => {
     if(index >= 6) {
         showPocketmon(planet + 1);
@@ -43,6 +52,7 @@ const showPocketmon = (planet) => {
         .animate({"top" : "450px"}, "swing");
 
         setTimeout(() => {
+            hideMap();
             // 다음 난이도 넘어가기(처음 난이도 시작)
         }, 2000);
     }
@@ -53,6 +63,7 @@ const showPocketmon = (planet) => {
         .animate({"top" : "50px"}, "swing");
 
         setTimeout(() => {
+            hideMap();
             // 다음 난이도 넘어가기(두 번째 난이도 시작)
         }, 2000)
     }
@@ -63,6 +74,7 @@ const showPocketmon = (planet) => {
         .animate({"top" : "400px"}, "swing")
 
         setTimeout(() => {
+            hideMap();
             // 다음 난이도 넘어가기(마지막 난이도 시작)
         }, 2000)
     }
