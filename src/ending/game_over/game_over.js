@@ -1,7 +1,13 @@
 const showMainMenu = () => {
     $(".game-over").hide();
+    $(".final-ending").hide();
     //메인메뉴 show()
 };
+
+const showGameOver = () => {
+    $(".game-over").show();
+    typingGameOver();
+}
 
 const typingGameOver = () => {
     new TypeIt(".game-over__msg--dr-oak-msg", {
@@ -13,9 +19,8 @@ const typingGameOver = () => {
       .go()
 };
 
-const init = () => {
-    typingGameOver();
+const initGameOver = () => {
     $(".game-over__button--show-main").on("click", showMainMenu);
 };
 
-$(document).ready(init);
+$(document).ready(initGameOver);

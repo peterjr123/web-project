@@ -12,6 +12,9 @@ const showEnding = (endingNumber) => {
     else if(endingNumber == 1){
         $(".mid-ending").show();
         $(".mid-ending__img--pocketmon-img").attr("src", "../../img/ending/dan.png")
+        $(".mid-ending__img--planet-img")
+        .attr("src", "../../img/ending/venus.png");
+        showMidAnimation($(".mid-ending__pocketmon-seal"));
         currentLevel = 2;
     }
     else if(endingNumber == 2){
@@ -62,7 +65,7 @@ const onNextLevel = (currentLevel) => {
     // 다음 난이도 실행
 };
 
-const init = () => {
+const initMidEnding = () => {
     $(".mid-ending__button--show-next-level")
     .hover(
     () => {
@@ -80,4 +83,4 @@ const init = () => {
     .on('click', onNextLevel(currentLevel));
 };
 
-$(document).ready(init);
+$(document).ready(initMidEnding);
