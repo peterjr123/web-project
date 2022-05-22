@@ -80,6 +80,13 @@ let userStatus = {
 	score: 0,
 	combo: 0,
 };
+let bossAttack = {
+	coolDown: 10,
+	width: 0,
+	height: 0,
+	initialPoxY: 0,
+	speed: 10,
+};
 const brickContainer = {
 	bricksOnRow: 7,
 	bricksOnColumn: 5,
