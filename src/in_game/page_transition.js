@@ -30,6 +30,7 @@ const onStageClear = () => {
 };
 const onStartGame = (gameLevel) => {
 	showGamePage();
+	setGameSceneSize();
 	startGame(gameLevel);
 };
 const onGameOver = () => {
@@ -70,6 +71,7 @@ let paddleStatus = {
 	posX: 50,
 	height: 10,
 	width: 75,
+	color: "#0095DD",
 };
 let userStatus = {
 	maxHP: 3,
@@ -89,10 +91,14 @@ let normalBrick = {
 	width: 75,
 	height: 20,
 	score: 10,
+	maxHP: 1,
+	color: "#0095DD",
 };
 let bossBrick = {
 	width: 245,
 	height: 80,
+	maxHP: 10,
+	color: "#0095DD",
 };
 let bricks = [];
 const ballImgSrc = [
@@ -105,12 +111,24 @@ const planetImgSrc = [
 	"../img/in_game/지구-removebg-preview.png",
 	"../img/in_game/화성-removebg-preview.png",
 ];
+const bossImgSrc = [
+	"./../img/in_game/롱스톤-removebg-preview.png",
+	"./../img/in_game/피카츄-removebg-preview.png",
+	"../img/in_game/뮤2-removebg-preview.png",
+];
+const colorTheme = ["#AFABAB", "#FFD966", "#FFC0CB"];
 
-// -------------------- canvas ---------------------------
+// -------------------- canvas + resizing---------------------------
 $("body").ready(() => {
 	canvas = document.getElementById("game-page__canvas");
 	context = canvas.getContext("2d");
 });
+const setGameSceneSize = () => {
+	const height = $(window).height();
+	console.log(height);
+	$("#game-page__content-wrapper").css({ height: height });
+	$("#game-page__reward-scene").css({ height: height });
+};
 const setCanvasSize = () => {
 	canvas.width = $("#game-page__game-scene").width();
 	canvas.height = $("#game-page__game-scene").height();
@@ -163,7 +181,7 @@ const paddleDrawing = () => {
 	context.beginPath();
 	//   만약 paddle이 canvas에서 몇 px 높이 존재한다면, 충돌판정도 수정해야 함.
 	context.rect(paddleStatus.posX, canvas.height - paddleStatus.height, paddleStatus.width, paddleStatus.height);
-	context.fillStyle = "#0095dd";
+	context.fillStyle = paddleStatus.color;
 	context.fill();
 	context.closePath();
 };
@@ -204,7 +222,7 @@ const setBricks = (stageLevel) => {
 	let posY = 0 + brickContainer.offsetSide;
 	if (stageLevel != 3) {
 		while (blockCount < brickContainer.bricksOnColumn * brickContainer.bricksOnRow) {
-			bricks[blockCount] = createBrick(posX, posY, "normal", 1);
+			bricks[blockCount] = createBrick(posX, posY, "normal", normalBrick.maxHP);
 			blockCount++;
 
 			// 다음 블럭의 pos 설정
@@ -219,7 +237,7 @@ const setBricks = (stageLevel) => {
 		console.log(bricks);
 	} else {
 		while (blockCount < brickContainer.bricksOnColumn * brickContainer.bricksOnRow) {
-			bricks[blockCount] = createBrick(posX, posY, "normal", 1);
+			bricks[blockCount] = createBrick(posX, posY, "normal", normalBrick.maxHP);
 			if (
 				blockCount / brickContainer.bricksOnRow < 3 && // 첫 세줄에 속하는 블럭이고,
 				blockCount % brickContainer.bricksOnRow >= (brickContainer.bricksOnRow - 3) / 2 && // 가운데 3개의
@@ -241,17 +259,41 @@ const setBricks = (stageLevel) => {
 		posX = bricks[(brickContainer.bricksOnRow - 3) / 2].posX;
 		posY = bricks[(brickContainer.bricksOnRow - 3) / 2].posY;
 		// 보스 블럭 추가
-		bricks[blockCount] = createBrick(posX, posY, "boss", 10);
+		bricks[blockCount] = createBrick(posX, posY, "boss", bossBrick.maxHP);
 	}
+};
+const bossImgDrawing = (brick) => {
+	const imgSize = 60;
+	const imgPosX = brick.posX + (brick.width - imgSize) / 2;
+	const imgPosY = brick.posY + 5;
+	const img = new Image();
+	img.src = bossImgSrc[gameStatus.gameLevel - 1];
+	context.drawImage(img, imgPosX, imgPosY, imgSize, imgSize);
+};
+const bossHpDrawing = (brick) => {
+	const hpBarPosX = brick.posX + 10;
+	const hpBarPoxY = brick.posY + brick.height - 10;
+	const hpBarWidth = (brick.width - 20) * (brick.hp / bossBrick.maxHP);
+	const hpBarHeigth = 5;
+	context.beginPath();
+	context.rect(hpBarPosX, hpBarPoxY, hpBarWidth, hpBarHeigth);
+	context.fillStyle = "#FF0000";
+	context.fill();
+	context.closePath();
 };
 const bricksDrawing = () => {
 	for (let i = 0; i < bricks.length; i++) {
 		if (!bricks[i].active) continue;
 		context.beginPath();
 		context.rect(bricks[i].posX, bricks[i].posY, bricks[i].width, bricks[i].height);
-		context.fillStyle = "#0095DD";
+		context.fillStyle = normalBrick.color;
 		context.fill();
 		context.closePath();
+
+		if (bricks[i].type === "boss") {
+			bossImgDrawing(bricks[i]);
+			bossHpDrawing(bricks[i]);
+		}
 	}
 };
 const setBrickSize = () => {
@@ -296,7 +338,7 @@ const onHitPaddle = () => {
 	console.log("Hit paddle!!");
 };
 const onHitNormalBlock = (brick) => {
-	brick.hp -= 1;
+	brick.hp -= userStatus.ballDamage;
 	if (brick.hp <= 0) {
 		brick.active = false;
 		onKillNormalBlock();
@@ -304,7 +346,7 @@ const onHitNormalBlock = (brick) => {
 	console.log("Hit normal block!!");
 };
 const onHitBossBlock = (brick) => {
-	brick.hp -= 1;
+	brick.hp -= userStatus.ballDamage;
 	if (brick.hp <= 0) {
 		brick.active = false;
 		onKillBossBlock();
@@ -435,7 +477,22 @@ const setGameInitialStatus = () => {
 
 	// 4. 탐색 행성 사진
 	$("#game-page__current-planet img:first").attr("src", planetImgSrc[gameStatus.gameLevel - 1]);
-	// 게임 테마 색상
+
+	// 5. 게임 테마 색상 설정
+	setColorTheme();
+};
+const setColorTheme = () => {
+	const theme = colorTheme[gameStatus.gameLevel - 1];
+	// 1. 일반 벽돌 + 보스 벽돌 색상
+	normalBrick.color = theme;
+	bossBrick.color = theme;
+
+	// 2. 보상 테두리 색상
+	const str = "3px solid " + theme;
+	$(".reward-img-wrapper").css({ border: str });
+
+	// 3. 게임 신 테두리 색상
+	$("#game-page__game-scene").css({ border: str });
 };
 const everyFrameDrawing = () => {
 	context.clearRect(0, 0, canvas.width, canvas.height);
