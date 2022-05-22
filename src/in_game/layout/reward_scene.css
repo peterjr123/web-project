@@ -1,56 +1,54 @@
 /* 보상 전체 화면 */
 #game-page__reward-scene {
-  /* display: none; */
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  height: 800px;
+	display: none;
+	flex-direction: column;
+	justify-content: flex-start;
 }
 
 /* title 관련 */
 #game-page__reward-scene--title {
-  flex-basis: 30%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+	flex-basis: 30%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 #game-page__reward-scene--title > p:nth-child(1) {
-  font-size: 52px;
-  color: #ffc000;
+	font-size: 52px;
+	color: #ffc000;
 }
 #game-page__reward-scene--title > p:nth-child(2) {
-  margin-top: 10px;
-  font-size: 22px;
-  color: white;
+	margin-top: 10px;
+	font-size: 22px;
+	color: white;
 }
 
 /* 보상 선택지 관련 */
 #game-page__reward-wrapper {
-  display: flex;
-  justify-content: space-evenly;
+	display: flex;
+	justify-content: space-evenly;
 }
 .reward-box {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 .reward-box p:nth-child(1) {
-  color: white;
+	color: white;
 }
 .reward-box p:nth-child(3) {
-  font-size: 0.8em;
-  color: #bfbfbf;
+	font-size: 0.8em;
+	color: #bfbfbf;
 }
 .reward-img-wrapper {
-  border: 1px solid #ffc000;
-  border-radius: 10px;
-  height: 150px;
-  width: 150px;
-  background-color: #fff2cc;
-  margin: 5px 0px;
+	border: 1px solid #ffc000;
+	border-radius: 10px;
+	height: 150px;
+	width: 150px;
+	background-color: #fff2cc;
+	margin: 5px 0px;
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
