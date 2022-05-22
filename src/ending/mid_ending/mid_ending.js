@@ -1,5 +1,5 @@
 let currentLevel = 1;
-const showEnding = (endingNumber) => {
+showEnding = (endingNumber) => {
 	// 난이도 1 => endingNumbe 1, 마지막 난이도 => endingNumber 3
 	if (endingNumber == 0) {
 		$(".mid-ending").show();

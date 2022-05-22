@@ -28,7 +28,7 @@ const onStageClear = () => {
 	showRewardPage();
 	clearInterval(drawInterval);
 };
-const onStartGame = (gameLevel) => {
+onStartGame = (gameLevel) => {
 	showGamePage();
 	setGameSceneSize();
 	startGame(gameLevel);
@@ -43,6 +43,9 @@ const onKillBossBlock = () => {
 	clearInterval(drawInterval);
 	hideGamePage();
 	// 엔딩 화면 호출
+	if (gameStatus.gameLevel == 1) showEnding(0);
+	else if (gameStatus.gameLevel == 2) showEnding(1);
+	else showEnding(2);
 	// showEnding();
 };
 const onKillNormalBlock = () => {
