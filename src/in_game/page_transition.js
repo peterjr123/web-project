@@ -36,6 +36,7 @@ onStartGame = (gameLevel) => {
 const onGameOver = () => {
 	clearInterval(drawInterval);
 	hideGamePage();
+	showGameOver();
 	// gameover page 호출
 };
 const onKillBossBlock = () => {
