@@ -1,21 +1,98 @@
 <!DOCTYPE html>
 <head>
-	<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-	<script src="https://unpkg.com/typeit@8.5.4/dist/index.umd.js"></script>
-	<script src="./ending/map/map.js"></script>
-	<script src="./ending/final_ending/final_ending.js"></script>
-	<script src="./ending/mid_ending/mid_ending.js"></script>
-	<script src="./ending/game_over/game_over.js"></script>
+	<script
+		src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+		crossorigin="anonymous"
+	></script>
+	<div>
+		<!-- in-game css -->
+		<link rel="stylesheet" href="./in_game/layout/screen_division.css" />
+		<link rel="stylesheet" href="./in_game/layout/right_sidebar.css" />
+		<link rel="stylesheet" href="./in_game/layout/reward_scene.css" />
+		<link rel="stylesheet" href="./in_game/layout/game_canvas.css" />
 
-	<link href="./ending/map/map.css" rel="stylesheet" />
-	<link href="./ending/final_ending/final_ending.css" rel="stylesheet" />
-	<link href="./ending/mid_ending/mid_ending.css" rel="stylesheet" />
-	<link href="./ending/game_over/game_over.css" rel="stylesheet" />
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet" />
+		<!-- in game js -->
+		<script src="./in_game/page_transition.js"></script>
+	</div>
+	<div>
+		<!-- ending js -->
+		<script src="https://unpkg.com/typeit@8.5.4/dist/index.umd.js"></script>
+		<script src="./ending/map/map.js"></script>
+		<script src="./ending/final_ending/final_ending.js"></script>
+		<script src="./ending/mid_ending/mid_ending.js"></script>
+		<script src="./ending/game_over/game_over.js"></script>
+		<!-- ending css -->
+		<link href="./ending/map/map.css" rel="stylesheet" />
+		<link href="./ending/final_ending/final_ending.css" rel="stylesheet" />
+		<link href="./ending/mid_ending/mid_ending.css" rel="stylesheet" />
+		<link href="./ending/game_over/game_over.css" rel="stylesheet" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet" />
+	</div>
 </head>
 <body>
+	<div id="game-page">
+		<div id="game-page__content-wrapper">
+			<div id="game-page__empty-sidebar"></div>
+			<div id="game-page__game-scene">
+				<canvas id="game-page__canvas"></canvas>
+				<div id="game-page__reward-scene">
+					<div id="game-page__reward-scene--title">
+						<p>Stage Clear!!</p>
+						<p>보상을 선택하세요!</p>
+					</div>
+					<div id="game-page__reward-wrapper">
+						<div class="reward-box">
+							<p>볼 업그레이드</p>
+							<div class="reward-img-wrapper" onclick="onSelectUpgrade('ball')">
+								<img src="./img/in_game/마스터볼-removebg-preview (2).png" width="100px" />
+							</div>
+							<p>데미지 증가</p>
+						</div>
+
+						<!-- 추후에 코드 삭제하고, js로 추가, 삭제 연산 구현 -->
+						<div class="reward-box">
+							<p>체력 업그레이드</p>
+							<div class="reward-img-wrapper" onclick="onSelectUpgrade('hp')">
+								<img src="./img/in_game/heart.png" width="100px" />
+							</div>
+							<p>최대 체력 1 증가</p>
+						</div>
+						<div class="reward-box">
+							<p>바 업그레이드</p>
+							<div class="reward-img-wrapper" onclick="onSelectUpgrade('bar')">
+								<img src="./img/in_game/stretch.png" width="120px" />
+							</div>
+							<p>바의 길이 증가</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div id="game-page__sidebar">
+				<div id="game-page__user-status">
+					<div id="game-page__heart-container-wrapper">
+						<img src="./img/in_game/heart.png" width="60px" />
+						<img src="./img/in_game/heart.png" width="60px" />
+						<img src="./img/in_game/heart.png" width="60px" />
+					</div>
+					<p id="game-page__user-score">스코어: 0</p>
+					<p id="game-page__user-combo-count">Combo: 0</p>
+				</div>
+				<div id="game-page__current-planet">
+					<p>현재 탐색중...</p>
+					<div>
+						<img src="./img/in_game/금성-removebg-preview.png" width="140px" />
+						<img src="./img/in_game/target.png" width="30px" />
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="game-page__flying-pokemon-bread"></div>
+	</div>
 	<div class="map">
 		<div class="map__wrapper">
 			<div class="map__img--planet-img">

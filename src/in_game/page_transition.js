@@ -109,19 +109,19 @@ let bossBrick = {
 };
 let bricks = [];
 const ballImgSrc = [
-	"./../img/in_game/몬스터볼-removebg-preview.png",
-	"./../img/in_game/레벨볼-removebg-preview.png",
-	"../img/in_game/마스터볼-removebg-preview (2).png",
+	"./img/in_game/몬스터볼-removebg-preview.png",
+	"./img/in_game/레벨볼-removebg-preview.png",
+	"./img/in_game/마스터볼-removebg-preview (2).png",
 ];
 const planetImgSrc = [
-	"../img/in_game/금성-removebg-preview.png",
-	"../img/in_game/지구-removebg-preview.png",
-	"../img/in_game/화성-removebg-preview.png",
+	"./img/in_game/금성-removebg-preview.png",
+	"./img/in_game/지구-removebg-preview.png",
+	"./img/in_game/화성-removebg-preview.png",
 ];
 const bossImgSrc = [
-	"./../img/in_game/롱스톤-removebg-preview.png",
-	"./../img/in_game/피카츄-removebg-preview.png",
-	"../img/in_game/뮤2-removebg-preview.png",
+	"./img/in_game/롱스톤-removebg-preview.png",
+	"./img/in_game/피카츄-removebg-preview.png",
+	"./img/in_game/뮤2-removebg-preview.png",
 ];
 const colorTheme = ["#AFABAB", "#FFD966", "#FFC0CB"];
 
@@ -150,8 +150,8 @@ const setUserHP = (hp) => {
 		return;
 	}
 	const heart_container = $("#game-page__heart-container-wrapper");
-	const empty_heart = '<img src="./../img/in_game/empty-heart.png" width="60px" />';
-	const heart = '<img src="./../img/in_game/heart.png" width="60px" />';
+	const empty_heart = '<img src="./img/in_game/empty-heart.png" width="60px" />';
+	const heart = '<img src="./img/in_game/heart.png" width="60px" />';
 
 	heart_container.empty();
 	for (let i = 0; i != userStatus.maxHP - userStatus.currentHP; i++) {
