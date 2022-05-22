@@ -1,28 +1,46 @@
 <!DOCTYPE html>
 <head>
+    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+    <script src="map.js"></script>
+
+    <link href="map.css" rel="stylesheet">
 </head>
 
 <body>
-    <img id="mars_img">
-    <img id="earth_img">
-    <img id="venus_img">
-
-    <img id="pocketmon1">
-    <img id="pocketmon2">
-    <img id="pocketmon3">
-
-    <div class="path">
-        <img class="circle">
-        <img class="circle">
-        <img class="circle">
-        <img class="circle">
-        <img class="circle">
-    </div>
-    <div class="path">
-        <img class="circle">
-        <img class="circle">
-        <img class="circle">
-        <img class="circle">
-        <img class="circle">
+    <div class="map">
+        <div class="map__wrapper">
+            <div class="map__img--planet-img">
+                <div class="map__img--mars-pocketmon">
+                    <img class="map__img--mars">
+                    <img class="map__img--pikachu">
+                </div>
+                <div class="map__img--earth-pocketmon">
+                    <img class="map__img--earth">
+                    <img class="map__img--dan">
+                </div>
+                <div class="map__img--venus-pocketmon">
+                    <img class="map__img--venus">
+                    <img class="map__img--mu">
+                </div>
+            </div>
+            <div class="map__path">
+                <div class="map__path--mars-to-earth">
+                    <img class="map__circle">
+                    <img class="map__circle">
+                    <img class="map__circle">
+                    <img class="map__circle">
+                    <img class="map__circle">
+                    <img class="map__circle">
+                </div>
+                <div class="map__path--earth-to-venus">
+                    <img class="map__circle">
+                    <img class="map__circle">
+                    <img class="map__circle">
+                    <img class="map__circle">
+                    <img class="map__circle">
+                    <img class="map__circle">
+                </div>
+            </div>
+        </div>
     </div>
 </body>
