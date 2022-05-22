@@ -61,8 +61,9 @@ const typingMidEnding = () => {
       .go()
 };
 
-const onNextLevel = (currentLevel) => {
-    // 다음 난이도 실행
+const onNextLevel = () => {
+    $(".mid-ending").hide();
+    // 다음 난이도 실행 currentLevel이용
 };
 
 const initMidEnding = () => {
@@ -80,7 +81,7 @@ const initMidEnding = () => {
         $(".mid-ending__img--planet-img").css({"transform": "scale(1) translate(-50%, 0)"});
         $(".mid-ending__msg--planet_msg").css({"transform": "scale(1) translate(-50%, -50%)"});
     })
-    .on('click', onNextLevel(currentLevel));
+    .on('click', onNextLevel);
 };
 
 $(document).ready(initMidEnding);
