@@ -33,6 +33,11 @@
 	</div>
 </head>
 <body>
+	<button onclick="onStageClear()">normal stage 클리어시</button>
+	<button onclick="onSelectReward()">보상 선택 완료시</button>
+	<button onclick="onStartGame(3)">새 게임 시작하기</button>
+	<button onclick="onGameOver()">gameover인 경우</button>
+	<button onclick="onKillBossBlock()">보스 클리어시</button>
 	<div id="game-page">
 		<div id="game-page__content-wrapper">
 			<div id="game-page__empty-sidebar"></div>
@@ -93,6 +98,7 @@
 
 		<div id="game-page__flying-pokemon-bread"></div>
 	</div>
+
 	<input type="button" onclick="showMap()" value="맵 화면 보이기" />
 	<input type="button" onclick="showPocketmon(0)" value="화성 난이도 플레이" />
 	<input type="button" onclick="makeMEPath()" value="화성에서 지구" />
@@ -101,7 +107,6 @@
 	<input type="button" onclick="showEnding(1)" value="중간엔딩 2" />
 	<input type="button" onclick="showEnding(2)" value="최종엔딩" />
 	<input type="button" onclick="showGameOver()" value="게임오버 화면" />
-
 	<div class="map">
 		<div class="map__wrapper">
 			<div class="map__img--planet-img">

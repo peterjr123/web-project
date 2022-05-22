@@ -92,7 +92,7 @@ const brickContainer = {
 	bricksOnColumn: 5,
 	spaceBetweenBricks: 10,
 	offsetTop: 30,
-	offsetSide: 30,
+	offsetSide: 70,
 };
 let normalBrick = {
 	width: 75,
