@@ -1,0 +1,52 @@
+#outbox1 {
+	border-radius: 50px;
+	background-color: black;
+	opacity: 0.75;
+	width: 1037px;
+	height: 732px;
+}
+
+#outbox2 {
+	border-radius: 50px;
+	border: 1px solid yellow;
+	background-color: black;
+	opacity: 0.75;
+	width: 1015px;
+	height: 707px;
+	position: relative;
+	top: 10px;
+	left: 10px;
+}
+
+#header {
+	position: relative;
+	top: 10px;
+	left: 10px;
+}
+
+#title {
+	display: inline-block;
+	border-radius: 5px;
+	border: 1px solid lightgoldenrodyellow;
+	width: 200px;
+	height: 60px;
+	color: white;
+	font-size: 30px;
+	text-align: center;
+	line-height: 60px;
+	margin: 10px 10px;
+	float: left;
+}
+
+#close_btn {
+	width: 90px;
+	height: 90px;
+	margin-left: 680px;
+	float: left;
+}
+
+#content {
+	float: left;
+	margin-left: 40px;
+	color: white;
+}
