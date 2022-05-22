@@ -1,4 +1,4 @@
-body > div {
+#menu-display {
 	display: none;
 }
 
@@ -49,18 +49,18 @@ body > div {
 	float: left;
 }
 
-#outbox2 > div:nth-child(n+2) > h2 {
+#outbox2 > div:nth-child(n + 2) > h2 {
 	color: white;
 	text-align: center;
 	font-size: 40px;
 }
 
-#outbox2 > div:nth-child(n+2) {
+#outbox2 > div:nth-child(n + 2) {
 	margin-top: 100px;
 	margin-bottom: 100px;
 }
 
-#outbox2 > div:nth-child(n+2) > div {
+#outbox2 > div:nth-child(n + 2) > div {
 	text-align: center;
 	color: white;
 	font-size: 20px;
