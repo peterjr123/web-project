@@ -4,7 +4,7 @@ const showMainMenu = () => {
     //메인메뉴 show()
 };
 
-const showGameOver = () => {
+showGameOver = () => {
     $(".game-over").show();
     typingGameOver();
 }

@@ -77,7 +77,6 @@ const initFinalEnding = () => {
     $(".final-ending__button--show-main").on("click", showMainMenu);
 };
 
-
 $(document).ready(initFinalEnding);
 
 
