@@ -46,7 +46,6 @@ const onKillBossBlock = () => {
 	if (gameStatus.gameLevel == 1) showEnding(0);
 	else if (gameStatus.gameLevel == 2) showEnding(1);
 	else showEnding(2);
-	// showEnding();
 };
 const onKillNormalBlock = () => {
 	setCombo(userStatus.combo + 1);
@@ -84,11 +83,14 @@ let userStatus = {
 	combo: 0,
 };
 let bossAttack = {
+	maxCoolDown: 10,
 	coolDown: 10,
 	width: 0,
 	height: 0,
 	initialPoxY: 0,
-	speed: 10,
+	dy: 10,
+	img: {},
+	attacks: [],
 };
 const brickContainer = {
 	bricksOnRow: 7,
@@ -126,6 +128,7 @@ const bossImgSrc = [
 	"./img/in_game/피카츄-removebg-preview.png",
 	"./img/in_game/뮤2-removebg-preview.png",
 ];
+const attackImgSrc = ["./img/in_game/rock.png", "./img/in_game/flash.png", "./img/in_game/meteor.png"];
 const colorTheme = ["#AFABAB", "#FFD966", "#FFC0CB"];
 
 // -------------------- canvas + resizing---------------------------
@@ -316,6 +319,42 @@ const setBrickSize = () => {
 	bossBrick.height = normalBrick.height * 3 + brickContainer.spaceBetweenBricks * 2;
 };
 
+// -------------------- boss attack ------------------
+const makeBossAttack = (posX, active) => {
+	return {
+		posX: posX,
+		posY: bossAttack.initialPoxY,
+		active: active,
+	};
+};
+const setBossAttacks = () => {
+	for (let i = 0; i < brickContainer.bricksOnRow; i++) {
+		bossAttack.attacks[i] = makeBossAttack(bricks[i].posX, false);
+	}
+	const img = new Image();
+	img.src = attackImgSrc[gameStatus.gameLevel - 1];
+	bossAttack.img = img;
+
+	bossAttack.width = normalBrick.width;
+	bossAttack.height = 100;
+};
+const bossAttackDrawing = () => {
+	if (bossAttack.coolDown > 0) bossAttack.coolDown -= 1;
+	else {
+		bossAttack.coolDown = bossAttack.maxCoolDown;
+		const randNum = Math.floor(Math.random() * brickContainer.bricksOnRow);
+		bossAttack.attacks[randNum].active = true;
+	}
+	for (let i = 0; i < bossAttack.attacks.length; i++) {
+		if (!bossAttack.attacks[i].active) continue;
+
+		const att = bossAttack.attacks[i];
+		context.drawImage(bossAttack.img, att.posX, att.posY, bossAttack.width, bossAttack.height);
+
+		att.posY += bossAttack.dy;
+	}
+};
+
 // --------------------- upgrade ---------------------
 const onSelectUpgrade = (upgradeType) => {
 	if (upgradeType === "ball") {
@@ -362,6 +401,10 @@ const onHitBossBlock = (brick) => {
 		onKillBossBlock();
 	}
 	console.log("Hit boss block!!");
+};
+const onHitBossAttack = () => {
+	setUserHP(userStatus.currentHP - 1);
+	setCombo(0);
 };
 
 const wallCollisionDetect = () => {
@@ -439,6 +482,29 @@ const brickCollisionHandler = () => {
 		return; // 충돌이 한번에 2번 일어나지 않는다 가정.
 	}
 };
+const attackCollisionDetect = (attack) => {
+	if (attack.posX > paddleStatus.posX + paddleStatus.width || attack.posX + bossAttack.width < paddleStatus.posX) {
+		return false;
+	}
+	return true;
+};
+const attackCollisionHandler = () => {
+	for (let i = 0; i < bossAttack.attacks.length; i++) {
+		const att = bossAttack.attacks[i];
+		if (!att.active) continue;
+		if (att.posY + bossAttack.height >= canvas.height - paddleStatus.height) {
+			if (attackCollisionDetect(att)) {
+				onHitBossAttack();
+				att.active = false;
+				att.posY = bossAttack.initialPoxY;
+			}
+		}
+		if (att.posY > canvas.height) {
+			att.active = false;
+			att.posY = bossAttack.initialPoxY;
+		}
+	}
+};
 const collisionHandler = () => {
 	if (paddleCollisionDetect()) {
 		onHitPaddle();
@@ -456,6 +522,8 @@ const collisionHandler = () => {
 
 	// handler에서 ballStatus처리
 	brickCollisionHandler();
+
+	if (gameStatus.stageLevel == 3) attackCollisionHandler();
 };
 
 // ----------------------- game initializing ----------------
@@ -509,6 +577,7 @@ const everyFrameDrawing = () => {
 	ballDrawing();
 	paddleDrawing();
 	bricksDrawing();
+	if (gameStatus.stageLevel === 3) bossAttackDrawing();
 
 	collisionHandler();
 
@@ -523,6 +592,7 @@ const startStage = (stageLevel) => {
 	setBrickSize();
 	setStageInitialStatus();
 	setBricks(stageLevel);
+	if (stageLevel == 3) setBossAttacks();
 	drawInterval = setInterval(everyFrameDrawing, 10);
 };
 const startGame = (gameLevel) => {
