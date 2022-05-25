@@ -9,6 +9,15 @@
 		var onStartGame;
 		var showEnding;
 		var showGameOver;
+		let globalAudio = {
+			brickHitAudio: {},
+			onDamageAudio: {},
+			clickAudio: {},
+			gameoverAudio: {},
+			paddleHitAudio: {},
+			bossHitAudio: {},
+			backgroundMusics: [],
+		};
 	</script>
 	<div>
 		<!-- in-game css -->
@@ -37,8 +46,8 @@
 		<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet" />
 	</div>
 	<div>
-		<link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
-		<link href="loading-page.css" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet" />
+		<link href="loading-page.css" rel="stylesheet" />
 	</div>
 	<div>
 		<link rel="stylesheet" type="text/css" href="menu_display/Menu.css" />
@@ -49,9 +58,7 @@
 	<div class="loading-page">
 		<div class="loading-page__content-wrapper">
 			<svg viewBox="0 0 1320 300">
-				<text x="50%" y="50%" dy=".35em" text-anchor="middle">
-					SY corp.
-				</text>
+				<text x="50%" y="50%" dy=".35em" text-anchor="middle">SY corp.</text>
 			</svg>
 		</div>
 	</div>
