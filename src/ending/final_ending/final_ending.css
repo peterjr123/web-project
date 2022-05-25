@@ -1,101 +1,98 @@
 * {
-    margin: 0;
-    padding: 0;
+	margin: 0;
+	padding: 0;
 }
 
 :root {
-    --ti-cursor-font-size:0;
+	--ti-cursor-font-size: 0;
 }
 
 .final-ending {
-    background-image: url("../../img/ending/background.png");
-    height: 800px;
-    display: none;
+	background-image: url("../../img/ending/background.png");
+	height: 800px;
+	display: none;
 }
 
 .final-ending__wrapper {
-    position: relative;
-    width: 1200px;
-    height: 800px;
-    margin: auto;
+	position: relative;
+	width: 1200px;
+	height: 800px;
+	margin: auto;
 }
 
 .final-ending__pocketmon-seal {
-    position: absolute;
-    top: -300px;
-    left: 0px;
-    width: 300px;
-    height: 300px;
-    transform-origin: 50% 50%;
-    /*초반에는 안보임*/
+	position: absolute;
+	top: -300px;
+	left: 0px;
+	width: 300px;
+	height: 300px;
+	transform-origin: 50% 50%;
+	/*초반에는 안보임*/
 }
 
 .final-ending__img--pocketmon-img {
-    transform-origin: 50% 50%;
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    z-index: 2;
-    content: url("../../img/ending/mu.png");
-    
+	transform-origin: 50% 50%;
+	position: absolute;
+	width: 300px;
+	height: 300px;
+	z-index: 2;
+	content: url("../../img/ending/mu.png");
 }
 
 .final-ending__img--halo-img {
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    opacity: 0.8;
-    z-index: 1;
-    content: url("../../img/ending/halo.png");
-    transform-origin: 50% 50%;
+	position: absolute;
+	width: 300px;
+	height: 300px;
+	opacity: 0.8;
+	z-index: 1;
+	content: url("../../img/ending/halo.png");
+	transform-origin: 50% 50%;
 }
 
-.final-ending__dr-oak{
-    position: relative;
-    top: 200px;
-    left: 0;
+.final-ending__dr-oak {
+	position: relative;
+	top: 200px;
+	left: 0;
 }
 
 .final-ending__img--dr-oak-img {
-    position: absolute;
-    content: url("../../img/ending/oak.png");
-    height: 400px;
-    opacity: 0.7;
+	position: absolute;
+	content: url("../../img/ending/oak.png");
+	height: 400px;
+	opacity: 0.7;
 }
 
-.final-ending__msg--dr_oak_msg{
-    position: absolute;
-    color: white;
-    top: 100px;
-    left: 200px;
-    font-size: 30px;
+.final-ending__msg--dr_oak_msg {
+	position: absolute;
+	color: white;
+	top: 100px;
+	left: 200px;
+	font-size: 30px;
 }
 
 .final-ending__button--show-main {
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    width: 300px;
-    height: 70px;
-    font-size: 25px;
-    background-color: white;
-    border: 0;
-    border-radius: 5px;
+	position: absolute;
+	top: 70%;
+	left: 50%;
+	transform: translate(-50%, 0);
+	width: 300px;
+	height: 70px;
+	font-size: 25px;
+	background-color: white;
+	border: 0;
+	border-radius: 5px;
 }
 
 @keyframes floating {
-	
-    0%{
-        transform: translateY(-10px);
-    }
-
-    50% {
-        transform: translateY(10px);
-    }
-	
-	100% {
-        transform: translateY(-10px);
+	0% {
+		transform: translateY(-10px);
 	}
-	
+
+	50% {
+		transform: translateY(10px);
+	}
+
+	100% {
+		transform: translateY(-10px);
+	}
 }
