@@ -1,17 +1,16 @@
-@keyframes erase {
-    0%{
-        
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-
 .loading-page {
-    transition: all ease 1s 5s;
-    display: none;
+    animation: erase;
+    animation-delay: 5s;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
 }
+
+@keyframes erase {
+    100% {
+        visibility: hidden;
+    }
+}
+
 
 svg {
   font-family: 'Russo One', sans-serif;
