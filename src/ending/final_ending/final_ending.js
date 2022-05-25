@@ -56,6 +56,7 @@ const showMainMenu = () => {
 };*/
 
 const typingFinalEnding = () => {
+    $(".final-ending__msg--dr_oak_msg").text('');
     new TypeIt(".final-ending__msg--dr_oak_msg", {
         speed: 70,
         waitUntilVisible: true,
