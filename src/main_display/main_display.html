@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="main_display.css">
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<script type="text/javascript" src="main_display.js"></script>
+	<title>main menu page</title>
+</head>
+<body>
+	<div id="main_page">
+		<img class="pokemon_img" id="pp" src="pp.png">
+		<img class="pokemon_img" id="pr" src="pr.png">
+		<img class="pokemon_img" id="pk" src="pk.png">
+		<img class="pokemon_img" id="pf" src="pf.png">
+		<img class="pokemon_img" id="pm" src="pm.png">
+		<div id="main_box">
+			<div id="main_title">
+				GAMENAME
+			</div>
+			<button id="start_btn">start</button>
+			<img class="option" id="setting_btn" src="setting_btn.png"> 
+			<img class="option" id="htp_btn" src="htp_btn.png"> 
+			<img class="option" id="credit_btn" src="credit_btn.png">
+		</div>
+
+		<div class="menu_page" id="option_page">
+			<div id="outbox1">
+				<div id="outbox2">
+					<div id="header">
+						<div id="title">OPTION</div>
+						<img class="close_btn" id="close_btn1" src="close_btn.png">
+					</div>
+					<div id="opt1">
+						<h2>music select</h2>
+						<div>
+							music 1<input type="radio" name="music-select" id="music 1" checked>  
+							music 2<input type="radio" name="music-select" id="music 2">  
+							music 3<input type="radio" name="music-select" id="music 3">
+						</div>
+					</div>
+					<div id="opt2">
+						<h2>music sound</h2>
+						<div>
+							On<input type="radio" name="music-onoff" id="music_on" checked>  
+							Off<input type="radio" name="music-onoff" id="music_off">
+						</div>
+					</div>
+					<div id="opt3">
+						<h2>effect sound</h2>
+						<div>
+							On<input type="radio" name="effect-onoff" id="effect_on" checked>  
+							Off<input type="radio" name="effect-onoff" id="effect_off">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="menu_page" id="howtoplay_page">
+			<div id="outbox1">
+				<div id="outbox2">
+					<div id="header">
+						<div id="title">How To Play</div>
+						<img class="close_btn" id="close_btn2" src="close_btn.png">
+					</div>
+					<div id="content">
+						<ol>
+							<li>내용입니다.</li><br>
+							<li>내용입니다.</li>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="menu_page" id="credit_page">
+			<div id="outbox1">
+				<div id="outbox2">
+					<div id="header">
+						<div id="title">CREDIT</div>
+						<img class="close_btn" id="close_btn3" src="close_btn.png">
+					</div>
+					<div id="content">
+						<h3>Producted By</h3>
+						<p>김수환, 김유빈, 박준석, 한슬기</p>
+						<hr><br><br>
+						<h3>Team Leader</h3>
+						<p>박준석</p>
+						<hr><br><br>
+						<h3>Presented By</h3>
+						<p>건국대학교, 건국우유, 레스티오, 스타벅스, 뚜레쥬르, 사임당화장품, 카카오, 네이버</p>
+						<p style="font-size: 10px">(위 내용은 비공식입니다)</p>
+						<hr><br><br>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="lv_page">
+		<div id="wrapper">
+			<div class="lv" id="lv1">
+				<img src="level1.png">
+				<div class="lv_text">
+					<p>EASY</p>
+				</div>
+			</div>
+			<div class="lv" id="lv2">
+				<img src="level2.png">
+				<div class="lv_text">
+					<p>NORMAL</p>
+				</div>
+			</div>
+			<div class="lv" id="lv3">
+				<img src="level3.png">
+				<div class="lv_text">
+					<p>HARD</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>
