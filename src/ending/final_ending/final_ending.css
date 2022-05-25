@@ -84,7 +84,6 @@
 }
 
 @keyframes floating {
-<<<<<<< HEAD
 	0% {
 		transform: translateY(-10px);
 	}
@@ -92,17 +91,8 @@
 	50% {
 		transform: translateY(10px);
 	}
-=======
-    0%{
-        transform: translateY(-10px);
-    }
->>>>>>> 12d3008e1e418265f4618543703513355c27f9e6
 
 	100% {
 		transform: translateY(-10px);
 	}
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 12d3008e1e418265f4618543703513355c27f9e6
