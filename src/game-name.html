@@ -37,11 +37,24 @@
 		<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet" />
 	</div>
 	<div>
+		<link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">
+		<link href="loading-page.css" rel="stylesheet">
+	</div>
+	<div>
 		<link rel="stylesheet" type="text/css" href="menu_display/Menu.css" />
 		<script type="text/javascript" src="menu_display/Menu.js"></script>
 	</div>
 </head>
 <body>
+	<div class="loading-page">
+		<div class="loading-page__content-wrapper">
+			<svg viewBox="0 0 1320 300">
+				<text x="50%" y="50%" dy=".35em" text-anchor="middle">
+					SY corp.
+				</text>
+			</svg>
+		</div>
+	</div>
 	<button onclick="onStageClear()">normal stage 클리어시</button>
 	<button onclick="onSelectReward()">보상 선택 완료시</button>
 	<button onclick="onStartGame(3)">새 게임 시작하기</button>
