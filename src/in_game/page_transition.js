@@ -338,6 +338,17 @@ const setBossAttacks = () => {
 
 	bossAttack.width = normalBrick.width;
 	bossAttack.height = 100;
+
+	if (gameStatus.gameLevel == 1) {
+		bossAttack.maxCoolDown = 100;
+		bossAttack.dy = 5;
+	} else if (gameStatus.gameLevel == 2) {
+		bossAttack.maxCoolDown = 50;
+		bossAttack.dy = 7;
+	} else {
+		bossAttack.maxCoolDown = 10;
+		bossAttack.dy = 10;
+	}
 };
 const bossAttackDrawing = () => {
 	if (bossAttack.coolDown > 0) bossAttack.coolDown -= 1;
@@ -533,8 +544,8 @@ const setStageInitialStatus = () => {
 	// 1. ball의 위치, 방향 초기화, img 초기화
 	ballStatus.posX = canvas.width / 2;
 	ballStatus.posY = canvas.height - 100;
-	ballStatus.dx = 4;
-	ballStatus.dy = -4;
+	ballStatus.dx = ballStatus.dx;
+	ballStatus.dy = -ballStatus.dy;
 	ballStatus.img = new Image();
 	ballStatus.img.src = ballImgSrc[userStatus.ballDamage - 1];
 	// 2. 현재 목숨을 full로
