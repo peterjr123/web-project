@@ -1,45 +1,58 @@
 .loading-page {
-    animation: erase;
-    animation-delay: 5s;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
+  animation: erase;
+  animation-delay: 5s;
+  animation-duration: 0s;
+  animation-fill-mode: forwards;
 }
 
 @keyframes erase {
-    100% {
-        visibility: hidden;
-    }
+  100% {
+    visibility: hidden;
+  }
 }
 
-
 svg {
-  font-family: 'Russo One', sans-serif;
-  position: absolute; 
-  width: 100%; 
+  font-family: "Russo One", sans-serif;
+  position: absolute;
+  width: 100%;
   height: 100%;
-  background: #e3f2fd ;
-  
+  background: black;
 }
 svg text {
   text-transform: uppercase;
   animation: stroke 5s alternate;
   animation-fill-mode: forwards;
   stroke-width: 2;
-  stroke: #6f8310;
+  stroke: white;
   font-size: 140px;
 }
 
 @keyframes stroke {
-  0%   {
-    fill: rgba(72,138,20,0); stroke: #6f8310;
-    stroke-dashoffset: 25%; stroke-dasharray: 0 50%; stroke-width: 2;
+  0% {
+    fill: rgba(72, 138, 20, 0);
+    stroke: white;
+    stroke-dashoffset: 25%;
+    stroke-dasharray: 0 50%;
+    stroke-width: 2;
   }
-  70%  {fill: rgba(72,138,20,0); stroke: rgba(54,95,160,1); }
-  80%  {fill: rgba(72,138,20,0); stroke: rgba(54,95,160,1); stroke-width: 3; }
+  60% {
+    fill: rgba(72, 138, 20, 0);
+    stroke: white;
+  }
+  70% {
+    fill: rgba(72, 138, 20, 0);
+    stroke: white;
+    stroke-width: 3;
+  }
+  90% {
+    fill: white;
+    stroke: white;
+    stroke-dashoffset: -25%;
+    stroke-dasharray: 50% 0;
+    stroke-width: 0;
+    opacity: 1;
+  }
   100% {
-    fill: rgba(72,138,204,1); stroke: rgba(54,95,160,0); 
-    stroke-dashoffset: -25%; stroke-dasharray: 50% 0; stroke-width: 0;
+    opacity: 0;
   }
 }
-
-
