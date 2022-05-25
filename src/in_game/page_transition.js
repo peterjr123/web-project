@@ -51,6 +51,11 @@ const onKillBossBlock = () => {
 const onKillNormalBlock = () => {
 	setCombo(userStatus.combo + 1);
 	setScore(normalBrick.score * userStatus.combo + userStatus.score);
+
+	brickContainer.brickCount -= 1;
+	if (brickContainer.brickCount <= 5) {
+		onStageClear();
+	}
 };
 
 //------------------------------- global variables --------------------------
@@ -99,6 +104,7 @@ const brickContainer = {
 	spaceBetweenBricks: 10,
 	offsetTop: 30,
 	offsetSide: 70,
+	brickCount: 10,
 };
 let normalBrick = {
 	width: 75,
@@ -248,7 +254,7 @@ const setBricks = (stageLevel) => {
 				posX += normalBrick.width + brickContainer.spaceBetweenBricks;
 			}
 		}
-		console.log(bricks);
+		brickContainer.brickCount = blockCount;
 	} else {
 		while (blockCount < brickContainer.bricksOnColumn * brickContainer.bricksOnRow) {
 			bricks[blockCount] = createBrick(posX, posY, "normal", normalBrick.maxHP);
