@@ -1,3 +1,21 @@
+const soundOnOff = (muted) => {
+	globalAudio.bossBattleAudio.muted = muted;
+	globalAudio.clickAudio.muted = muted;
+	globalAudio.finalLevelClear.muted = muted;
+	globalAudio.middleLevelClear.muted = muted;
+	globalAudio.onDamageTaken.muted = muted;
+	globalAudio.stageClearAudio.muted = muted;
+	globalAudio.ballHitAudio.muted = muted;
+	globalAudio.brickBreakAudio.muted = muted;
+	globalAudio.gameoverAudio.muted = muted;
+	globalAudio.moveMap.muted = muted;
+
+	globalAudio.normalStage[0].muted = muted;
+	globalAudio.normalStage[1].muted = muted;
+	globalAudio.normalStage[2].muted = muted;
+	globalAudio.normalStage[3].muted = muted;
+};
+
 $(document).ready(function () {
 	$("#start_btn").click(function () {
 		$("#lv_page").addClass("next_page");
@@ -55,6 +73,8 @@ $(document).ready(function () {
 		music4.pause();
 		ex_music.currentTime = 30;
 		ex_music.play();
+
+		soundOnOff(false);
 	});
 	$("#music_off").click(function () {
 		music1.pause();
@@ -62,6 +82,8 @@ $(document).ready(function () {
 		music3.pause();
 		music4.pause();
 		ex_music.pause();
+
+		soundOnOff(true);
 	});
 
 	var ex_effect = globalAudio.clickAudio;
