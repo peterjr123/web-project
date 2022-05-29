@@ -49,6 +49,8 @@ const onSelectReward = () => {
 const onStageClear = () => {
 	hideGameCanvas();
 	showRewardPage();
+	globalAudio.stageClearAudio.play();
+
 	clearInterval(drawInterval);
 };
 onStartGame = (gameLevel) => {
@@ -57,6 +59,11 @@ onStartGame = (gameLevel) => {
 	startGame(gameLevel);
 };
 const onGameOver = () => {
+	if (gameStatus.stageLevel != 3) {
+		globalAudio.normalStage[0].pause();
+	} else {
+		globalAudio.bossBattleAudio.pause();
+	}
 	clearInterval(drawInterval);
 	hideGamePage();
 	showGameOver();
@@ -66,6 +73,10 @@ const onKillBossBlock = () => {
 	// 실제론 stageclear가 아니라 다 지우고, 엔딩화면 호출
 	clearInterval(drawInterval);
 	hideGamePage();
+
+	// boss bgm pause
+	globalAudio.bossBattleAudio.pause();
+
 	// 엔딩 화면 호출
 	if (gameStatus.gameLevel == 1) showEnding(0);
 	else if (gameStatus.gameLevel == 2) showEnding(1);
@@ -79,6 +90,8 @@ const onKillNormalBlock = () => {
 	if (brickContainer.brickCount <= 5) {
 		onStageClear();
 	}
+
+	globalAudio.brickBreakAudio.play();
 };
 
 //------------------------------- global variables --------------------------
@@ -423,9 +436,13 @@ const onHitGround = () => {
 	setUserHP(userStatus.currentHP - 1);
 	setCombo(0);
 	console.log("hit ground!!");
+
+	globalAudio.onDamageTaken.play();
 };
 const onHitPaddle = () => {
 	console.log("Hit paddle!!");
+
+	globalAudio.ballHitAudio.play();
 };
 const onHitNormalBlock = (brick) => {
 	brick.hp -= userStatus.ballDamage;
@@ -444,6 +461,7 @@ const onHitBossBlock = (brick) => {
 	console.log("Hit boss block!!");
 };
 const onHitBossAttack = () => {
+	globalAudio.onDamageTaken.play();
 	setUserHP(userStatus.currentHP - 1);
 	setCombo(0);
 };
@@ -555,10 +573,13 @@ const collisionHandler = () => {
 	if (wallCollisionDetect() == 1) {
 		if (ballStatus.posY + ballStatus.dy > canvas.height - ballStatus.radius) {
 			onHitGround();
+		} else {
+			globalAudio.ballHitAudio.play();
 		}
 		ballStatus.dy = -ballStatus.dy;
 	} else if (wallCollisionDetect() == -1) {
 		ballStatus.dx = -ballStatus.dx;
+		globalAudio.ballHitAudio.play();
 	}
 
 	// handler에서 ballStatus처리
@@ -635,7 +656,12 @@ const startStage = (stageLevel) => {
 	setBricks(stageLevel);
 	if (stageLevel == 3) {
 		setBossAttacks();
+		globalAudio.normalStage[0].pause();
+		globalAudio.bossBattleAudio.currentTime = 0;
 		globalAudio.bossBattleAudio.play();
+	} else {
+		globalAudio.normalStage[0].currentTime = 0;
+		globalAudio.normalStage[0].play();
 	}
 	drawInterval = setInterval(everyFrameDrawing, 10);
 };
