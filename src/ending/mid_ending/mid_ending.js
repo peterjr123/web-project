@@ -5,12 +5,14 @@ showEnding = (endingNumber) => {
 		$(".mid-ending").show();
 		$(".mid-ending__img--pocketmon-img").attr("src", "./img/ending/pikachu.png");
 		$(".mid-ending__img--planet-img").attr("src", "./img/ending/earth.png");
+		$(".mid-ending__user-msg").text('');
 		showMidAnimation($(".mid-ending__pocketmon-seal"));
 		currentLevel = 1;
 	} else if (endingNumber == 1) {
 		$(".mid-ending").show();
 		$(".mid-ending__img--pocketmon-img").attr("src", "./img/ending/dan.png");
 		$(".mid-ending__img--planet-img").attr("src", "./img/ending/venus.png");
+		$(".mid-ending__user-msg").text('');
 		showMidAnimation($(".mid-ending__pocketmon-seal"));
 		currentLevel = 2;
 	} else if (endingNumber == 2) {
@@ -41,6 +43,7 @@ const showMidAnimation = (seal) => {
 	animLeftDistance = $(window).width() * 0.6;
 	centerLeftDistance = ($(window).width() - 300) / 3;
 
+	seal.css({"top": "-300px", "left": "300px"})
 	seal.animate({ top: "100px", left: animLeftDistance }, 2000).animate({ top: "200px", left: centerLeftDistance }, 1000, () => {
 		typingMidEnding();
 		showSealAnimation(seal);

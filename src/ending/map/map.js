@@ -8,6 +8,13 @@ const hideMap = () => {
 	$(".map").hide();
 };
 
+const initMap = () => {
+	$(".map__circle").hide();
+	$(".map__img--pikachu").css({left: "100px",top: "550px"});
+	$(".map__img--dan").css({left: "500px",top: "150px"});
+	$(".map__img--mu").css({left: "1000px",top: "500px"});
+};
+
 const pathAnimation = (path, index, planet) => {
 	if (index >= 6) {
 		showPocketmon(planet + 1);
@@ -26,6 +33,7 @@ makeEVPath = () => {
 };
 
 const hidePocketmon = (planet) => {
+	//initMap();
 	if (planet == 0) {
 		// mars
 		$(".map__img--pikachu")
@@ -53,6 +61,7 @@ showPocketmon = (planet) => {
 		setTimeout(() => {
 			hideMap();
 			// 다음 난이도 넘어가기(처음 난이도 시작)
+			initMap();
 			onStartGame(1);
 		}, 2000);
 	} else if (planet == 1) {
@@ -62,6 +71,7 @@ showPocketmon = (planet) => {
 		setTimeout(() => {
 			hideMap();
 			// 다음 난이도 넘어가기(두 번째 난이도 시작)
+			initMap();
 			onStartGame(2);
 		}, 2000);
 	} else if (planet == 2) {
@@ -71,6 +81,7 @@ showPocketmon = (planet) => {
 		setTimeout(() => {
 			hideMap();
 			// 다음 난이도 넘어가기(마지막 난이도 시작)
+			initMap();
 			onStartGame(3);
 		}, 2000);
 	}
