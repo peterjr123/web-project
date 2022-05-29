@@ -60,7 +60,7 @@ onStartGame = (gameLevel) => {
 };
 const onGameOver = () => {
 	if (gameStatus.stageLevel != 3) {
-		globalAudio.normalStage[0].pause();
+		globalAudio.normalStage[game_music].pause();
 	} else {
 		globalAudio.bossBattleAudio.pause();
 	}
@@ -656,12 +656,12 @@ const startStage = (stageLevel) => {
 	setBricks(stageLevel);
 	if (stageLevel == 3) {
 		setBossAttacks();
-		globalAudio.normalStage[0].pause();
+		globalAudio.normalStage[game_music].pause();
 		globalAudio.bossBattleAudio.currentTime = 0;
 		globalAudio.bossBattleAudio.play();
 	} else {
-		globalAudio.normalStage[0].currentTime = 0;
-		globalAudio.normalStage[0].play();
+		globalAudio.normalStage[game_music].currentTime = 0;
+		globalAudio.normalStage[game_music].play();
 	}
 	drawInterval = setInterval(everyFrameDrawing, 10);
 };

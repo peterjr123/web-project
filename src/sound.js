@@ -27,7 +27,7 @@ const initSound = () => {
 	ballHitAudio.src = "./audio/ballHitAudio.mp3";
 	brickBreakAudio.src = "./audio/brickBreakAudio.mp3";
 	gameoverAudio.src = "./audio/gameoverAudio.mp3";
-	moveMap.src = "./audio/beep.mp3"
+	moveMap.src = "./audio/beep.mp3";
 
 	globalAudio.bossBattleAudio = bossBattleAudio;
 	globalAudio.clickAudio = clickAudio;
@@ -37,6 +37,7 @@ const initSound = () => {
 	globalAudio.normalStage[1] = normalStage2;
 	globalAudio.normalStage[2] = normalStage3;
 	globalAudio.normalStage[3] = normalStage4;
+	game_music = 0;
 	globalAudio.onDamageTaken = onDamageTaken;
 	globalAudio.stageClearAudio = stageClearAudio;
 	globalAudio.ballHitAudio = ballHitAudio;

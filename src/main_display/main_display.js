@@ -1,4 +1,3 @@
-var game_music;
 $(document).ready(function () {
 	$("#start_btn").click(function () {
 		$("#lv_page").addClass("next_page");
@@ -15,41 +14,41 @@ $(document).ready(function () {
 	var music2 = globalAudio.normalStage[1];
 	var music3 = globalAudio.normalStage[2];
 	var music4 = globalAudio.normalStage[3];
-	$("#music1").click(function() {
+	$("#music1").click(function () {
 		ex_music.pause();
 		music1.play();
 		music2.pause();
 		music3.pause();
 		music4.pause();
-		game_muiic = globalAudio.normalStage[0];
+		game_music = 0;
 	});
-	$("#music2").click(function() {
+	$("#music2").click(function () {
 		ex_music.pause();
 		music2.play();
 		music1.pause();
 		music3.pause();
 		music4.pause();
-		game_muiic = globalAudio.normalStage[1];
+		game_music = 1;
 	});
-	$("#music3").click(function() {
+	$("#music3").click(function () {
 		ex_music.pause();
 		music3.play();
 		music1.pause();
 		music2.pause();
 		music4.pause();
-		game_muiic = globalAudio.normalStage[2];
+		game_music = 2;
 	});
-	$("#music4").click(function() {
+	$("#music4").click(function () {
 		ex_music.pause();
 		music4.play();
 		music1.pause();
 		music2.pause();
 		music3.pause();
-		game_muiic = globalAudio.normalStage[3];
+		game_music = 3;
 	});
 
 	var ex_music = globalAudio.bossBattleAudio;
-	$("#music_on").click(function() {
+	$("#music_on").click(function () {
 		music1.pause();
 		music2.pause();
 		music3.pause();
@@ -57,7 +56,7 @@ $(document).ready(function () {
 		ex_music.currentTime = 30;
 		ex_music.play();
 	});
-	$("#music_off").click(function() {
+	$("#music_off").click(function () {
 		music1.pause();
 		music2.pause();
 		music3.pause();
@@ -66,7 +65,7 @@ $(document).ready(function () {
 	});
 
 	var ex_effect = globalAudio.clickAudio;
-	$("#effect_on").click(function() {
+	$("#effect_on").click(function () {
 		music1.pause();
 		music2.pause();
 		music3.pause();
@@ -75,7 +74,7 @@ $(document).ready(function () {
 		ex_effect.currentTime = 1;
 		ex_effect.play();
 	});
-	$("#effect_off").click(function() {
+	$("#effect_off").click(function () {
 		music1.pause();
 		music2.pause();
 		music3.pause();
@@ -83,7 +82,6 @@ $(document).ready(function () {
 		ex_music.pause();
 		ex_effect.pause();
 	});
-
 
 	$("#htp_btn").click(function () {
 		$("#howtoplay_page").addClass("popup");
@@ -96,6 +94,11 @@ $(document).ready(function () {
 	});
 
 	$("#close_btn1").click(function () {
+		music1.pause();
+		music2.pause();
+		music3.pause();
+		music4.pause();
+		ex_music.pause();
 		$("#option_page").slideUp("slow");
 	});
 	$("#close_btn2").click(function () {
