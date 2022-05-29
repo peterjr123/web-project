@@ -5,7 +5,9 @@
 }
 
 /* ---------------------- 기본 정적 레이아웃------------------ */
-
+#game-page {
+	display: none;
+}
 /* 전체 게임화면 분할 */
 #game-page__content-wrapper {
 	display: flex;

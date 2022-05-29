@@ -59,6 +59,7 @@ const typingMidEnding = () => {
 const onNextLevel = () => {
 	$(".mid-ending").hide();
 	// 다음 난이도 실행 currentLevel이용
+	onSelectStage(currentLevel + 1);
 };
 
 const initMidEnding = () => {

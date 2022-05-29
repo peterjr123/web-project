@@ -1,4 +1,3 @@
-
 // ---------------------- 화면 전환 -------------------------
 const showRewardPage = () => {
 	$("#game-page__reward-scene").css({ display: "flex" });
@@ -19,13 +18,24 @@ const hideGamePage = () => {
 	$("#game-page").css({ display: "none" });
 };
 
-const showMainDisplay = () => {
-	$("#main_display").css("display", "block");
+showMainDisplay = () => {
+	const height = $(window).height();
+	$("#main_display").css({ display: "block", height: height });
 };
 
-const onSelectStage = (level) => {
-	onStartGame(level);
+onSelectStage = (level) => {
+	$("#lv_page").css("display", "none");
+	$("#main_page").css("display", "block");
 	$("#main_display").css("display", "none");
+	// 맵 화면 호출
+	showMap();
+	if (level == 1) {
+		showPocketmon(0);
+	} else if (level == 2) {
+		makeMEPath();
+	} else {
+		makeEVPath();
+	}
 };
 
 const onSelectReward = () => {

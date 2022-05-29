@@ -1,6 +1,6 @@
 // planet 은 어떤 행성으로 가는지 나타냄
 
-const showMap = () => {
+showMap = () => {
 	$(".map").show();
 };
 
@@ -17,11 +17,11 @@ const pathAnimation = (path, index, planet) => {
 	setTimeout(pathAnimation, 300, path, index + 1, planet);
 };
 
-const makeMEPath = () => {
+makeMEPath = () => {
 	hidePocketmon(0);
 };
 
-const makeEVPath = () => {
+makeEVPath = () => {
 	hidePocketmon(1);
 };
 
@@ -45,7 +45,7 @@ const hidePocketmon = (planet) => {
 	}
 };
 
-const showPocketmon = (planet) => {
+showPocketmon = (planet) => {
 	if (planet == 0) {
 		// mars
 		$(".map__img--pikachu").css({ top: "550px" }).delay(100).animate({ top: "450px" }, "swing");

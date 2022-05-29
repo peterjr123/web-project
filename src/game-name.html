@@ -9,6 +9,13 @@
 		var onStartGame;
 		var showEnding;
 		var showGameOver;
+		var showMainDisplay;
+		var showMap;
+		var makeMEPath;
+		var makeEVPath;
+		var showPocketmon;
+		var onSelectStage;
+
 		let globalAudio = {
 			brickHitAudio: {},
 			onDamageAudio: {},
@@ -228,19 +235,17 @@
 	<button onclick="showMainDisplay()">메인 화면</button>
 	<div id="main_display">
 		<div id="main_page">
-			<img class="pokemon_img" id="pp" src="./main_display/pp.png">
-			<img class="pokemon_img" id="pr" src="./main_display/pr.png">
-			<img class="pokemon_img" id="pk" src="./main_display/pk.png">
-			<img class="pokemon_img" id="pf" src="./main_display/pf.png">
-			<img class="pokemon_img" id="pm" src="./main_display/pm.png">
+			<img class="pokemon_img" id="pp" src="./main_display/pp.png" />
+			<img class="pokemon_img" id="pr" src="./main_display/pr.png" />
+			<img class="pokemon_img" id="pk" src="./main_display/pk.png" />
+			<img class="pokemon_img" id="pf" src="./main_display/pf.png" />
+			<img class="pokemon_img" id="pm" src="./main_display/pm.png" />
 			<div id="main_box">
-				<div id="main_title">
-					GAMENAME
-				</div>
+				<div id="main_title">GAMENAME</div>
 				<button id="start_btn">start</button>
-				<img class="option" id="setting_btn" src="./main_display/setting_btn.png"> 
-				<img class="option" id="htp_btn" src="./main_display/htp_btn.png"> 
-				<img class="option" id="credit_btn" src="./main_display/credit_btn.png">
+				<img class="option" id="setting_btn" src="./main_display/setting_btn.png" />
+				<img class="option" id="htp_btn" src="./main_display/htp_btn.png" />
+				<img class="option" id="credit_btn" src="./main_display/credit_btn.png" />
 			</div>
 
 			<div class="menu_page" id="option_page">
@@ -248,28 +253,37 @@
 					<div id="outbox2">
 						<div id="header">
 							<div id="title">OPTION</div>
-							<img class="close_btn" id="close_btn1" src="./main_display/close_btn.png">
+							<img class="close_btn" id="close_btn1" src="./main_display/close_btn.png" />
 						</div>
 						<div id="opt1">
 							<h2>music select</h2>
 							<div>
-								music 1<input type="radio" name="music-select" id="music 1" checked>  
-								music 2<input type="radio" name="music-select" id="music 2">  
-								music 3<input type="radio" name="music-select" id="music 3">
+								music 1<input type="radio" name="music-select" id="music 1" checked /> music 2<input
+									type="radio"
+									name="music-select"
+									id="music 2"
+								/>
+								music 3<input type="radio" name="music-select" id="music 3" />
 							</div>
 						</div>
 						<div id="opt2">
 							<h2>music sound</h2>
 							<div>
-								On<input type="radio" name="music-onoff" id="music_on" checked>  
-								Off<input type="radio" name="music-onoff" id="music_off">
+								On<input type="radio" name="music-onoff" id="music_on" checked /> Off<input
+									type="radio"
+									name="music-onoff"
+									id="music_off"
+								/>
 							</div>
 						</div>
 						<div id="opt3">
 							<h2>effect sound</h2>
 							<div>
-								On<input type="radio" name="effect-onoff" id="effect_on" checked>  
-								Off<input type="radio" name="effect-onoff" id="effect_off">
+								On<input type="radio" name="effect-onoff" id="effect_on" checked /> Off<input
+									type="radio"
+									name="effect-onoff"
+									id="effect_off"
+								/>
 							</div>
 						</div>
 					</div>
@@ -280,11 +294,12 @@
 					<div id="outbox2">
 						<div id="header">
 							<div id="title">How To Play</div>
-							<img class="close_btn" id="close_btn2" src="./main_display/close_btn.png">
+							<img class="close_btn" id="close_btn2" src="./main_display/close_btn.png" />
 						</div>
 						<div id="content">
 							<ol>
-								<li>내용입니다.</li><br>
+								<li>내용입니다.</li>
+								<br />
 								<li>내용입니다.</li>
 							</ol>
 						</div>
@@ -296,19 +311,22 @@
 					<div id="outbox2">
 						<div id="header">
 							<div id="title">CREDIT</div>
-							<img class="close_btn" id="close_btn3" src="./main_display/close_btn.png">
+							<img class="close_btn" id="close_btn3" src="./main_display/close_btn.png" />
 						</div>
 						<div id="content">
 							<h3>Producted By</h3>
 							<p>김수환, 김유빈, 박준석, 한슬기</p>
-							<hr><br><br>
+							<hr />
+							<br /><br />
 							<h3>Team Leader</h3>
 							<p>박준석</p>
-							<hr><br><br>
+							<hr />
+							<br /><br />
 							<h3>Presented By</h3>
 							<p>건국대학교, 건국우유, 레스티오, 스타벅스, 뚜레쥬르, 사임당화장품, 카카오, 네이버</p>
 							<p style="font-size: 10px">(위 내용은 비공식입니다)</p>
-							<hr><br><br>
+							<hr />
+							<br /><br />
 						</div>
 					</div>
 				</div>
@@ -318,19 +336,19 @@
 		<div id="lv_page">
 			<div id="wrapper">
 				<div class="lv" id="lv1" onclick="onSelectStage(1)">
-					<img src="./main_display/level1.png">
+					<img src="./main_display/level1.png" />
 					<div class="lv_text">
 						<p>EASY</p>
 					</div>
 				</div>
 				<div class="lv" id="lv2" onclick="onSelectStage(2)">
-					<img src="./main_display/level2.png">
+					<img src="./main_display/level2.png" />
 					<div class="lv_text">
 						<p>NORMAL</p>
 					</div>
 				</div>
 				<div class="lv" id="lv3" onclick="onSelectStage(3)">
-					<img src="./main_display/level3.png">
+					<img src="./main_display/level3.png" />
 					<div class="lv_text">
 						<p>HARD</p>
 					</div>
