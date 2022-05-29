@@ -13,7 +13,7 @@ const pathAnimation = (path, index, planet) => {
 		showPocketmon(planet + 1);
 		return;
 	}
-	path.children("img:eq(" + index + ")").show();
+	path.children("div:eq(" + index + ")").show();
 	setTimeout(pathAnimation, 300, path, index + 1, planet);
 };
 
