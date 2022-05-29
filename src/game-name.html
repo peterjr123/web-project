@@ -17,13 +17,16 @@
 		var onSelectStage;
 
 		let globalAudio = {
-			brickHitAudio: {},
-			onDamageAudio: {},
+			bossBattleAudio: {},
 			clickAudio: {},
+			finalLevelClear: {},
+			middleLevelClear: {},
+			normalStage: [],
+			onDamageTaken: {},
+			stageClearAudio: {},
+			ballHitAudio: {},
+			brickBreakAudio: {},
 			gameoverAudio: {},
-			paddleHitAudio: {},
-			bossHitAudio: {},
-			backgroundMusics: [],
 		};
 	</script>
 	<div>
@@ -60,6 +63,9 @@
 		<!-- main_display css, js -->
 		<link rel="stylesheet" type="text/css" href="./main_display/main_display.css" />
 		<script type="text/javascript" src="./main_display/main_display.js"></script>
+	</div>
+	<div>
+		<script type="text/javascript" src="./sound.js"></script>
 	</div>
 </head>
 <body>

@@ -22,6 +22,9 @@ showMainDisplay = () => {
 	const height = $(window).height();
 	$("#main_display").css({ display: "block", height: height });
 };
+$(document).ready(() => {
+	showMainDisplay();
+});
 
 onSelectStage = (level) => {
 	$("#lv_page").css("display", "none");
@@ -630,7 +633,10 @@ const startStage = (stageLevel) => {
 	setBrickSize();
 	setStageInitialStatus();
 	setBricks(stageLevel);
-	if (stageLevel == 3) setBossAttacks();
+	if (stageLevel == 3) {
+		setBossAttacks();
+		globalAudio.bossBattleAudio.play();
+	}
 	drawInterval = setInterval(everyFrameDrawing, 10);
 };
 const startGame = (gameLevel) => {
