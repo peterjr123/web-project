@@ -12,6 +12,7 @@ const initSound = () => {
 	const ballHitAudio = new Audio();
 	const brickBreakAudio = new Audio();
 	const gameoverAudio = new Audio();
+	const moveMap = new Audio();
 
 	bossBattleAudio.src = "./audio/bossBattleAudio.mp3";
 	clickAudio.src = "./audio/clickAudio.mp3";
@@ -26,6 +27,7 @@ const initSound = () => {
 	ballHitAudio.src = "./audio/ballHitAudio.mp3";
 	brickBreakAudio.src = "./audio/brickBreakAudio.mp3";
 	gameoverAudio.src = "./audio/gameoverAudio.mp3";
+	moveMap.src = "./audio/beep.mp3"
 
 	globalAudio.bossBattleAudio = bossBattleAudio;
 	globalAudio.clickAudio = clickAudio;
@@ -40,5 +42,6 @@ const initSound = () => {
 	globalAudio.ballHitAudio = ballHitAudio;
 	globalAudio.brickBreakAudio = brickBreakAudio;
 	globalAudio.gameoverAudio = gameoverAudio;
+	globalAudio.moveMap = moveMap;
 };
 initSound();

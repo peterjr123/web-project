@@ -1,11 +1,15 @@
 const showMainMenu = () => {
 	$(".game-over").hide();
 	$(".final-ending").hide();
+	globalAudio.gameoverAudio.pause();
 	showMainDisplay();
 };
 
 showGameOver = () => {
 	$(".game-over").show();
+	globalAudio.gameoverAudio.currentTime = 0;
+	globalAudio.gameoverAudio.play();
+
 	typingGameOver();
 };
 

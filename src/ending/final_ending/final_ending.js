@@ -76,6 +76,7 @@ const typingFinalEnding = () => {
 
 const initFinalEnding = () => {
     $(".final-ending__button--show-main").on("click", showMainMenu);
+    globalAudio.finalLevelClear.pause();
 };
 
 $(document).ready(initFinalEnding);

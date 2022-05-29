@@ -25,10 +25,14 @@ const pathAnimation = (path, index, planet) => {
 };
 
 makeMEPath = () => {
+	globalAudio.moveMap.currentTime = 0.5;
+	globalAudio.moveMap.play();
 	hidePocketmon(0);
 };
 
 makeEVPath = () => {
+	globalAudio.moveMap.currentTime = 0.5;
+	globalAudio.moveMap.play();
 	hidePocketmon(1);
 };
 
@@ -55,13 +59,15 @@ const hidePocketmon = (planet) => {
 
 showPocketmon = (planet) => {
 	if (planet == 0) {
-		// mars
+		globalAudio.moveMap.currentTime = 1;
+		globalAudio.moveMap.play();
 		$(".map__img--pikachu").css({ top: "550px" }).delay(100).animate({ top: "450px" }, "swing");
 
 		setTimeout(() => {
 			hideMap();
 			// 다음 난이도 넘어가기(처음 난이도 시작)
 			initMap();
+			globalAudio.moveMap.pause();
 			onStartGame(1);
 		}, 2000);
 	} else if (planet == 1) {
@@ -72,6 +78,7 @@ showPocketmon = (planet) => {
 			hideMap();
 			// 다음 난이도 넘어가기(두 번째 난이도 시작)
 			initMap();
+			globalAudio.moveMap.pause();
 			onStartGame(2);
 		}, 2000);
 	} else if (planet == 2) {
@@ -82,6 +89,7 @@ showPocketmon = (planet) => {
 			hideMap();
 			// 다음 난이도 넘어가기(마지막 난이도 시작)
 			initMap();
+			globalAudio.moveMap.pause();
 			onStartGame(3);
 		}, 2000);
 	}
