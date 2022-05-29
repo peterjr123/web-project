@@ -1,14 +1,10 @@
-* {
-	margin: 0;
-	padding: 0;
-}
-
-body {
+#main_display {
+	display: none;
 	background-image: url('space.png');
 	background-color: black;
 }
 
-div.menu_page {
+.menu_page {
 	display: none;
 }
 
@@ -192,11 +188,11 @@ div.menu_page {
 	font-size: 20px;
 }
 
-ol {
+#content > ol {
 	margin-left: 20px;
 }
 
-li {
+#content li {
 	color: white;
 	font-size: 20px;
 }
@@ -225,7 +221,7 @@ li {
 	text-align: center;
 }
 
-div.lv {
+.lv {
 	display: inline-block;
 	padding-top: 10px;
 	padding-bottom: 10px;

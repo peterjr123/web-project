@@ -18,6 +18,10 @@ const hideGamePage = () => {
 	$("#game-page").css({ display: "none" });
 };
 
+const showMainDisplay = () => {
+	$("#main_display").css("display", "block");
+}
+
 const onSelectReward = () => {
 	hideRewardPage();
 	showGameCanvas();
