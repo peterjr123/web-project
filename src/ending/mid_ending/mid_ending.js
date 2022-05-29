@@ -71,6 +71,7 @@ const onNextLevel = () => {
 	// 다음 난이도 실행 currentLevel이용
 	onSelectStage(currentLevel + 1);
 	globalAudio.middleLevelClear.pause();
+	globalAudio.clickAudio.play();
 };
 
 const initMidEnding = () => {
