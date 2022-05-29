@@ -1,3 +1,4 @@
+var game_music;
 $(document).ready(function () {
 	$("#start_btn").click(function () {
 		$("#lv_page").addClass("next_page");
@@ -15,28 +16,36 @@ $(document).ready(function () {
 	var music3 = globalAudio.normalStage[2];
 	var music4 = globalAudio.normalStage[3];
 	$("#music1").click(function() {
+		ex_music.pause();
 		music1.play();
 		music2.pause();
 		music3.pause();
 		music4.pause();
+		game_muiic = globalAudio.normalStage[0];
 	});
 	$("#music2").click(function() {
+		ex_music.pause();
 		music2.play();
 		music1.pause();
 		music3.pause();
 		music4.pause();
+		game_muiic = globalAudio.normalStage[1];
 	});
 	$("#music3").click(function() {
+		ex_music.pause();
 		music3.play();
 		music1.pause();
 		music2.pause();
 		music4.pause();
+		game_muiic = globalAudio.normalStage[2];
 	});
 	$("#music4").click(function() {
+		ex_music.pause();
 		music4.play();
 		music1.pause();
 		music2.pause();
 		music3.pause();
+		game_muiic = globalAudio.normalStage[3];
 	});
 
 	var ex_music = globalAudio.bossBattleAudio;
