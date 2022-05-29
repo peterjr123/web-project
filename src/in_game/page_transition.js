@@ -1,3 +1,4 @@
+
 // ---------------------- 화면 전환 -------------------------
 const showRewardPage = () => {
 	$("#game-page__reward-scene").css({ display: "flex" });
@@ -20,7 +21,12 @@ const hideGamePage = () => {
 
 const showMainDisplay = () => {
 	$("#main_display").css("display", "block");
-}
+};
+
+const onSelectStage = (level) => {
+	onStartGame(level);
+	$("#main_display").css("display", "none");
+};
 
 const onSelectReward = () => {
 	hideRewardPage();

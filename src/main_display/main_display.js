@@ -30,4 +30,6 @@ $(document).ready(function() {
    	$("#close_btn3").click(function() {
    		$("#credit_page").slideUp("slow");
    	});
-})
+
+}
+
