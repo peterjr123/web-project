@@ -1,11 +1,16 @@
 const showMainMenu = () => {
 	$(".game-over").hide();
 	$(".final-ending").hide();
+	globalAudio.gameoverAudio.pause();
+	globalAudio.clickAudio.play();
 	showMainDisplay();
 };
 
 showGameOver = () => {
 	$(".game-over").show();
+	globalAudio.gameoverAudio.currentTime = 0;
+	globalAudio.gameoverAudio.play();
+
 	typingGameOver();
 };
 
@@ -21,6 +26,7 @@ const typingGameOver = () => {
 
 const initGameOver = () => {
 	$(".game-over__button--show-main").on("click", showMainMenu);
+	globalAudio.clickAudio.play();
 };
 
 $(document).ready(initGameOver);
