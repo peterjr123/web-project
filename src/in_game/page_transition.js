@@ -510,13 +510,13 @@ const brickCollisionDetect = (brick) => {
 	) {
 		// 위 아래 충돌이 일어나면, 원의 중심은 x축 기준으로는 블록 안에 들어있지만, y축 기준으로는 블록 바깥에 존재한다.
 		// 반대로 좌우 충돌이 일어나면 x축 기준으로, 원의 중심이 바깥에 존재한다.
-		if (distance(ballStatus.posY, brickCenterY) > brick.height / 2) {
+		if (distance(ballStatus.posY, brickCenterY) <= brick.height / 2) {
 			console.log("detect - vertical hit!");
-			return 1;
-		}
-		if (distance(ballStatus.posX, brickCenterX) > brick.width / 2) {
-			console.log("detect - horizontal hit!");
 			return -1;
+		}
+		if (distance(ballStatus.posX, brickCenterX) <= brick.width / 2) {
+			console.log("detect - horizontal hit!");
+			return 1;
 		}
 		console.log("ball: ", ballStatus.posX, ballStatus.posY);
 		console.log("brick: ", brick.posX, brick.posY);
@@ -571,26 +571,24 @@ const attackCollisionHandler = () => {
 const collisionHandler = () => {
 	if (paddleCollisionDetect()) {
 		onHitPaddle();
-		
+
 		let paddle_length = paddleStatus.posX + paddleStatus.width;
-		let first_part = paddleStatus.posX + paddle_length/5;
-		let last_part = paddle_length - paddle_length/5;
+		let first_part = paddleStatus.posX + paddleStatus.width / 4;
+		let last_part = paddle_length - paddleStatus.width / 4;
 
 		if (ballStatus.dx >= 0) {
-			if (ballStatus.posX > last_part && ballStatus.posX <= paddle_length) {
+			if (ballStatus.posX > last_part) {
 				ballStatus.dx = 6;
 				ballStatus.dy = -2;
-			}
-			else {
+			} else {
 				ballStatus.dx = 4;
 				ballStatus.dy = -4;
 			}
 		} else {
-			if (ballStatus.posX >= paddleStatus.posX && ballStatus.posX <= first_part) {
+			if (ballStatus.posX < first_part) {
 				ballStatus.dx = -6;
 				ballStatus.dy = -2;
-			}
-			else {
+			} else {
 				ballStatus.dx = -4;
 				ballStatus.dy = -4;
 			}
