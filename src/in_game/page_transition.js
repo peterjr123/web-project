@@ -65,6 +65,7 @@ const onGameOver = () => {
 		globalAudio.bossBattleAudio.pause();
 	}
 	clearInterval(drawInterval);
+	resetUserUpgrade();
 	hideGamePage();
 	showGameOver();
 	// gameover page 호출
@@ -80,7 +81,10 @@ const onKillBossBlock = () => {
 	// 엔딩 화면 호출
 	if (gameStatus.gameLevel == 1) showEnding(0);
 	else if (gameStatus.gameLevel == 2) showEnding(1);
-	else showEnding(2);
+	else {
+		resetUserUpgrade();
+		showEnding(2);
+	}
 };
 const onKillNormalBlock = () => {
 	setCombo(userStatus.combo + 1);
@@ -611,18 +615,21 @@ const setStageInitialStatus = () => {
 	// 4. bricks 배열 비우기
 	bricks = [];
 };
-const resetUserStatus = () => {
+const resetUserUpgrade = () => {
 	userStatus.maxHP = 3;
-	setScore(0);
+	paddleStatus.width = 75;
 	userStatus.ballDamage = 1;
-}
+};
 const setGameInitialStatus = () => {
 	// 매 게임(world)를 시작하기 전에 게임을 초기화
-	// 1. user status
-	resetUserStatus();
-	
-	// 2. bar status
-	paddleStatus.width = 75;
+
+	// 1. user upgrade는 게임 오버와 난이도 level 3를 클리어 하는 경우에 reset
+
+	// 2. ball dx, dy 초기화
+
+	// 2. user score
+	setScore(0);
+
 	// 3. 다른 status?
 
 	// 4. 탐색 행성 사진
