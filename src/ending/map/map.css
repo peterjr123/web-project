@@ -4,7 +4,7 @@
 }
 .map {
     background-image: url("../../img/ending/background.png");
-    height: 800px;
+    height: 100vh;
     display: none;
 }
 

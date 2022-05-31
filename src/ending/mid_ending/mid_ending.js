@@ -62,7 +62,7 @@ const typingMidEnding = () => {
 		speed: 70,
 		waitUntilVisible: true,
 	})
-		.type("내가 원하는 스티커가 아니야")
+		.type("내가 원하는 스티커가 아니야...")
 		.go();
 };
 
