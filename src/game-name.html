@@ -9,14 +9,26 @@
 		var onStartGame;
 		var showEnding;
 		var showGameOver;
+		var showMainDisplay;
+		var showMap;
+		var makeMEPath;
+		var makeEVPath;
+		var showPocketmon;
+		var onSelectStage;
+		var game_music;
+
 		let globalAudio = {
-			brickHitAudio: {},
-			onDamageAudio: {},
+			bossBattleAudio: {},
 			clickAudio: {},
+			finalLevelClear: {},
+			middleLevelClear: {},
+			normalStage: [],
+			onDamageTaken: {},
+			stageClearAudio: {},
+			ballHitAudio: {},
+			brickBreakAudio: {},
 			gameoverAudio: {},
-			paddleHitAudio: {},
-			bossHitAudio: {},
-			backgroundMusics: [],
+			moveMap: {},
 		};
 	</script>
 	<div>
@@ -50,8 +62,12 @@
 		<link href="loading-page.css" rel="stylesheet" />
 	</div>
 	<div>
-		<link rel="stylesheet" type="text/css" href="menu_display/Menu.css" />
-		<script type="text/javascript" src="menu_display/Menu.js"></script>
+		<!-- main_display css, js -->
+		<link rel="stylesheet" type="text/css" href="./main_display/main_display.css" />
+		<script type="text/javascript" src="./main_display/main_display.js"></script>
+	</div>
+	<div>
+		<script type="text/javascript" src="./sound.js"></script>
 	</div>
 </head>
 <body>
@@ -155,20 +171,20 @@
 			</div>
 			<div class="map__path">
 				<div class="map__path--mars-to-earth">
-					<img class="map__circle" />
-					<img class="map__circle" />
-					<img class="map__circle" />
-					<img class="map__circle" />
-					<img class="map__circle" />
-					<img class="map__circle" />
+					<div class="map__circle"></div>
+					<div class="map__circle"></div>
+					<div class="map__circle"></div>
+					<div class="map__circle"></div>
+					<div class="map__circle"></div>
+					<div class="map__circle"></div>
 				</div>
 				<div class="map__path--earth-to-venus">
-					<img class="map__circle" />
-					<img class="map__circle" />
-					<img class="map__circle" />
-					<img class="map__circle" />
-					<img class="map__circle" />
-					<img class="map__circle" />
+					<div class="map__circle"></div>
+					<div class="map__circle"></div>
+					<div class="map__circle"></div>
+					<div class="map__circle"></div>
+					<div class="map__circle"></div>
+					<div class="map__circle"></div>
 				</div>
 			</div>
 		</div>
@@ -224,89 +240,129 @@
 	</div>
 
 	<!-- menu display html -->
-	<button id="view_page1">option popup page</button>
-	<button id="view_page2">howtoplay popup page</button>
-	<button id="view_page3">credit popup page</button>
-	<div id="menu-display">
-		<div id="option_page">
-			<div id="outbox1">
-				<div id="outbox2">
-					<div id="header">
-						<div id="title">OPTION</div>
-						<img id="close_btn" src="close_btn.png" />
-					</div>
-					<div id="opt1">
-						<h2>music select</h2>
-						<div>
-							music 1<input type="radio" name="music-select" id="music 1" checked /> music 2<input
-								type="radio"
-								name="music-select"
-								id="music 2"
-							/>
-							music 3<input type="radio" name="music-select" id="music 3" />
+	<button onclick="showMainDisplay()">메인 화면</button>
+	<div id="main_display">
+		<div id="main_page">
+			<img class="pokemon_img" id="pp" src="./main_display/pp.png" />
+			<img class="pokemon_img" id="pr" src="./main_display/pr.png" />
+			<img class="pokemon_img" id="pk" src="./main_display/pk.png" />
+			<img class="pokemon_img" id="pf" src="./main_display/pf.png" />
+			<img class="pokemon_img" id="pm" src="./main_display/pm.png" />
+			<div id="main_box">
+				<div id="main_title">GAMENAME</div>
+				<button id="start_btn">start</button>
+				<img class="option" id="setting_btn" src="./main_display/setting_btn.png" />
+				<img class="option" id="htp_btn" src="./main_display/htp_btn.png" />
+				<img class="option" id="credit_btn" src="./main_display/credit_btn.png" />
+			</div>
+
+			<div class="menu_page" id="option_page">
+				<div id="outbox1">
+					<div id="outbox2">
+						<div id="header">
+							<div id="title">OPTION</div>
+							<img class="close_btn" id="close_btn1" src="./main_display/close_btn.png" />
+						</div>
+						<div id="opt1">
+							<h2>music select</h2>
+							<div>
+								music 1<input type="radio" name="music-select" id="music1" checked /> music 2<input
+									type="radio"
+									name="music-select"
+									id="music2"
+								/>
+								music 3<input type="radio" name="music-select" id="music3" /> music 4<input
+									type="radio"
+									name="music-select"
+									id="music4"
+								/>
+							</div>
+						</div>
+						<div id="opt2">
+							<h2>music sound</h2>
+							<div>
+								On<input type="radio" name="music-onoff" id="music_on" checked /> Off<input
+									type="radio"
+									name="music-onoff"
+									id="music_off"
+								/>
+							</div>
+						</div>
+						<div id="opt3">
+							<h2>effect sound</h2>
+							<div>
+								On<input type="radio" name="effect-onoff" id="effect_on" checked /> Off<input
+									type="radio"
+									name="effect-onoff"
+									id="effect_off"
+								/>
+							</div>
 						</div>
 					</div>
-					<div id="opt2">
-						<h2>music sound</h2>
-						<div>
-							On<input type="radio" name="music-onoff" id="music_on" checked /> Off<input
-								type="radio"
-								name="music-onoff"
-								id="music_off"
-							/>
+				</div>
+			</div>
+			<div class="menu_page" id="howtoplay_page">
+				<div id="outbox1">
+					<div id="outbox2">
+						<div id="header">
+							<div id="title">How To Play</div>
+							<img class="close_btn" id="close_btn2" src="./main_display/close_btn.png" />
+						</div>
+						<div id="content">
+							<ol>
+								<li>내용입니다.</li>
+								<br />
+								<li>내용입니다.</li>
+							</ol>
 						</div>
 					</div>
-					<div id="opt3">
-						<h2>effect sound</h2>
-						<div>
-							On<input type="radio" name="effect-onoff" id="effect_on" checked /> Off<input
-								type="radio"
-								name="effect-onoff"
-								id="effect_off"
-							/>
+				</div>
+			</div>
+			<div class="menu_page" id="credit_page">
+				<div id="outbox1">
+					<div id="outbox2">
+						<div id="header">
+							<div id="title">CREDIT</div>
+							<img class="close_btn" id="close_btn3" src="./main_display/close_btn.png" />
+						</div>
+						<div id="content">
+							<h3>Producted By</h3>
+							<p>김수환, 김유빈, 박준석, 한슬기</p>
+							<hr />
+							<br /><br />
+							<h3>Team Leader</h3>
+							<p>박준석</p>
+							<hr />
+							<br /><br />
+							<h3>Presented By</h3>
+							<p>건국대학교, 건국우유, 레스티오, 스타벅스, 뚜레쥬르, 사임당화장품, 카카오, 네이버</p>
+							<p style="font-size: 10px">(위 내용은 비공식입니다)</p>
+							<hr />
+							<br /><br />
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div id="howtoplay_page">
-			<div id="outbox1">
-				<div id="outbox2">
-					<div id="header">
-						<div id="title">How To Play</div>
-						<img id="close_btn" src="close_btn.png" />
-					</div>
-					<div id="content">
-						<ol>
-							<li>내용입니다.</li>
-							<br />
-							<li>내용입니다.</li>
-						</ol>
+
+		<div id="lv_page">
+			<div id="wrapper">
+				<div class="lv" id="lv1" onclick="onSelectStage(1)">
+					<img src="./main_display/level1.png" />
+					<div class="lv_text">
+						<p>EASY</p>
 					</div>
 				</div>
-			</div>
-		</div>
-		<div id="credit_page">
-			<div id="outbox1">
-				<div id="outbox2">
-					<div id="header">
-						<div id="title">CREDIT</div>
-						<img id="close_btn" src="close_btn.png" />
+				<div class="lv" id="lv2" onclick="onSelectStage(2)">
+					<img src="./main_display/level2.png" />
+					<div class="lv_text">
+						<p>NORMAL</p>
 					</div>
-					<div id="content">
-						<h3>Producted By</h3>
-						<p>김수환, 김유빈, 박준석, 한슬기</p>
-						<hr />
-						<br /><br />
-						<h3>Team Leader</h3>
-						<p>박준석</p>
-						<hr />
-						<br /><br />
-						<h3>Presented By</h3>
-						<p>건국대학교, 건국우유, 레스티오, 스타벅스, 뚜레쥬르, 사임당화장품, 카카오, 네이버</p>
-						<p style="font-size: 10px">(위 내용은 비공식입니다)</p>
-						<hr />
-						<br /><br />
+				</div>
+				<div class="lv" id="lv3" onclick="onSelectStage(3)">
+					<img src="./main_display/level3.png" />
+					<div class="lv_text">
+						<p>HARD</p>
 					</div>
 				</div>
 			</div>

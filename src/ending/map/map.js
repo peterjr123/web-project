@@ -1,6 +1,6 @@
 // planet 은 어떤 행성으로 가는지 나타냄
 
-const showMap = () => {
+showMap = () => {
 	$(".map").show();
 };
 
@@ -8,24 +8,36 @@ const hideMap = () => {
 	$(".map").hide();
 };
 
+const initMap = () => {
+	$(".map__circle").hide();
+	$(".map__img--pikachu").css({left: "100px",top: "550px"});
+	$(".map__img--dan").css({left: "500px",top: "150px"});
+	$(".map__img--mu").css({left: "1000px",top: "500px"});
+};
+
 const pathAnimation = (path, index, planet) => {
 	if (index >= 6) {
 		showPocketmon(planet + 1);
 		return;
 	}
-	path.children("img:eq(" + index + ")").show();
+	path.children("div:eq(" + index + ")").show();
 	setTimeout(pathAnimation, 300, path, index + 1, planet);
 };
 
-const makeMEPath = () => {
+makeMEPath = () => {
+	globalAudio.moveMap.currentTime = 0.5;
+	globalAudio.moveMap.play();
 	hidePocketmon(0);
 };
 
-const makeEVPath = () => {
+makeEVPath = () => {
+	globalAudio.moveMap.currentTime = 0.5;
+	globalAudio.moveMap.play();
 	hidePocketmon(1);
 };
 
 const hidePocketmon = (planet) => {
+	//initMap();
 	if (planet == 0) {
 		// mars
 		$(".map__img--pikachu")
@@ -45,14 +57,17 @@ const hidePocketmon = (planet) => {
 	}
 };
 
-const showPocketmon = (planet) => {
+showPocketmon = (planet) => {
 	if (planet == 0) {
-		// mars
+		globalAudio.moveMap.currentTime = 1;
+		globalAudio.moveMap.play();
 		$(".map__img--pikachu").css({ top: "550px" }).delay(100).animate({ top: "450px" }, "swing");
 
 		setTimeout(() => {
 			hideMap();
 			// 다음 난이도 넘어가기(처음 난이도 시작)
+			initMap();
+			globalAudio.moveMap.pause();
 			onStartGame(1);
 		}, 2000);
 	} else if (planet == 1) {
@@ -62,6 +77,8 @@ const showPocketmon = (planet) => {
 		setTimeout(() => {
 			hideMap();
 			// 다음 난이도 넘어가기(두 번째 난이도 시작)
+			initMap();
+			globalAudio.moveMap.pause();
 			onStartGame(2);
 		}, 2000);
 	} else if (planet == 2) {
@@ -71,6 +88,8 @@ const showPocketmon = (planet) => {
 		setTimeout(() => {
 			hideMap();
 			// 다음 난이도 넘어가기(마지막 난이도 시작)
+			initMap();
+			globalAudio.moveMap.pause();
 			onStartGame(3);
 		}, 2000);
 	}

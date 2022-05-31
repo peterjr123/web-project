@@ -18,6 +18,29 @@ const hideGamePage = () => {
 	$("#game-page").css({ display: "none" });
 };
 
+showMainDisplay = () => {
+	const height = $(window).height();
+	$("#main_display").css({ display: "block", height: height });
+};
+$(document).ready(() => {
+	showMainDisplay();
+});
+
+onSelectStage = (level) => {
+	$("#lv_page").css("display", "none");
+	$("#main_page").css("display", "block");
+	$("#main_display").css("display", "none");
+	// 맵 화면 호출
+	showMap();
+	if (level == 1) {
+		showPocketmon(0);
+	} else if (level == 2) {
+		makeMEPath();
+	} else {
+		makeEVPath();
+	}
+};
+
 const onSelectReward = () => {
 	hideRewardPage();
 	showGameCanvas();
@@ -26,6 +49,8 @@ const onSelectReward = () => {
 const onStageClear = () => {
 	hideGameCanvas();
 	showRewardPage();
+	globalAudio.stageClearAudio.play();
+
 	clearInterval(drawInterval);
 };
 onStartGame = (gameLevel) => {
@@ -34,6 +59,11 @@ onStartGame = (gameLevel) => {
 	startGame(gameLevel);
 };
 const onGameOver = () => {
+	if (gameStatus.stageLevel != 3) {
+		globalAudio.normalStage[game_music].pause();
+	} else {
+		globalAudio.bossBattleAudio.pause();
+	}
 	clearInterval(drawInterval);
 	hideGamePage();
 	showGameOver();
@@ -43,6 +73,10 @@ const onKillBossBlock = () => {
 	// 실제론 stageclear가 아니라 다 지우고, 엔딩화면 호출
 	clearInterval(drawInterval);
 	hideGamePage();
+
+	// boss bgm pause
+	globalAudio.bossBattleAudio.pause();
+
 	// 엔딩 화면 호출
 	if (gameStatus.gameLevel == 1) showEnding(0);
 	else if (gameStatus.gameLevel == 2) showEnding(1);
@@ -56,6 +90,8 @@ const onKillNormalBlock = () => {
 	if (brickContainer.brickCount <= 5) {
 		onStageClear();
 	}
+
+	globalAudio.brickBreakAudio.play();
 };
 
 //------------------------------- global variables --------------------------
@@ -400,9 +436,13 @@ const onHitGround = () => {
 	setUserHP(userStatus.currentHP - 1);
 	setCombo(0);
 	console.log("hit ground!!");
+
+	globalAudio.onDamageTaken.play();
 };
 const onHitPaddle = () => {
 	console.log("Hit paddle!!");
+
+	globalAudio.ballHitAudio.play();
 };
 const onHitNormalBlock = (brick) => {
 	brick.hp -= userStatus.ballDamage;
@@ -421,6 +461,7 @@ const onHitBossBlock = (brick) => {
 	console.log("Hit boss block!!");
 };
 const onHitBossAttack = () => {
+	globalAudio.onDamageTaken.play();
 	setUserHP(userStatus.currentHP - 1);
 	setCombo(0);
 };
@@ -532,10 +573,13 @@ const collisionHandler = () => {
 	if (wallCollisionDetect() == 1) {
 		if (ballStatus.posY + ballStatus.dy > canvas.height - ballStatus.radius) {
 			onHitGround();
+		} else {
+			globalAudio.ballHitAudio.play();
 		}
 		ballStatus.dy = -ballStatus.dy;
 	} else if (wallCollisionDetect() == -1) {
 		ballStatus.dx = -ballStatus.dx;
+		globalAudio.ballHitAudio.play();
 	}
 
 	// handler에서 ballStatus처리
@@ -610,7 +654,15 @@ const startStage = (stageLevel) => {
 	setBrickSize();
 	setStageInitialStatus();
 	setBricks(stageLevel);
-	if (stageLevel == 3) setBossAttacks();
+	if (stageLevel == 3) {
+		setBossAttacks();
+		globalAudio.normalStage[game_music].pause();
+		globalAudio.bossBattleAudio.currentTime = 0;
+		globalAudio.bossBattleAudio.play();
+	} else {
+		globalAudio.normalStage[game_music].currentTime = 0;
+		globalAudio.normalStage[game_music].play();
+	}
 	drawInterval = setInterval(everyFrameDrawing, 10);
 };
 const startGame = (gameLevel) => {
