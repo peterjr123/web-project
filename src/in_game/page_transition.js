@@ -567,7 +567,30 @@ const attackCollisionHandler = () => {
 const collisionHandler = () => {
 	if (paddleCollisionDetect()) {
 		onHitPaddle();
-		ballStatus.dy = -ballStatus.dy;
+		
+		let paddle_length = paddleStatus.posX + paddleStatus.width;
+		let first_part = paddleStatus.posX + paddle_length/5;
+		let last_part = paddle_length - paddle_length/5;
+
+		if (ballStatus.dx >= 0) {
+			if (ballStatus.posX > last_part && ballStatus.posX <= paddle_length) {
+				ballStatus.dx = 6;
+				ballStatus.dy = -2;
+			}
+			else {
+				ballStatus.dx = 4;
+				ballStatus.dy = -4;
+			}
+		} else {
+			if (ballStatus.posX >= paddleStatus.posX && ballStatus.posX <= first_part) {
+				ballStatus.dx = -6;
+				ballStatus.dy = -2;
+			}
+			else {
+				ballStatus.dx = -4;
+				ballStatus.dy = -4;
+			}
+		}
 	}
 
 	if (wallCollisionDetect() == 1) {
