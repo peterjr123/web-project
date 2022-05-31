@@ -1,0 +1,281 @@
+@font-face {
+  font-family: "pocketmon";
+  src: url("../gsc.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #d5f2ca;
+}
+
+.new-map {
+  width: 100%;
+  height: 100vh;
+}
+
+.new-map__wrapper {
+  position: relative;
+  margin: auto;
+  width: 1200px;
+  height: 100%;
+}
+
+.new-map__img--map-img {
+  position: absolute;
+  content: url("../img/new_img/new_map.png");
+  width: 800px;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+/* 대사 */
+
+.person-message {
+  position: absolute;
+  width: 1000px;
+  height: 400px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 0;
+}
+
+.person-message__p--message {
+  position: absolute;
+  width: 800px;
+  line-height: 200px;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  font-family: "pocketmon";
+  font-size: 25px;
+}
+
+.person-message__img--person-img {
+  position: absolute;
+}
+
+.person-message__img--message-box {
+  position: absolute;
+  content: url("../img/new_img/text_box.png");
+  width: 800px;
+  height: 200px;
+  right: 0;
+  bottom: 0;
+}
+
+.person-message__img--next-img {
+  position: absolute;
+  content: url("../img/new_img/down_arrow.png");
+  right: 5px;
+  bottom: 0px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.s0-img {
+  content: url("../img/new_img/s0.png");
+  height: 400px;
+}
+
+.s1-img {
+  content: url("../img/new_img/s1.png");
+  height: 400px;
+}
+
+.s2-img {
+  content: url("../img/new_img/s2.png");
+  height: 400px;
+}
+
+:root {
+  --ti-cursor-font-size: 0;
+}
+
+/* 대사 */
+
+.ss0-img {
+  content: url("../img/new_img/ss0.png");
+  height: 64px;
+}
+
+.ss1-img {
+  content: url("../img/new_img/ss1.png");
+  height: 64px;
+}
+
+.ss2-img {
+  content: url("../img/new_img/ss2.png");
+  height: 64px;
+}
+
+.new-map__div--pin-wrapper {
+  position: relative;
+}
+
+.new-map__div--pin1-wrapper {
+  position: absolute;
+  width: 100px;
+  right: 400px;
+  top: 300px;
+  height: 100px;
+  cursor: pointer;
+}
+.new-map__div--pin2-wrapper {
+  position: absolute;
+  width: 100px;
+  left: 300px;
+  top: 200px;
+  height: 100px;
+  cursor: pointer;
+}
+.new-map__div--pin3-wrapper {
+  position: absolute;
+  width: 100px;
+  right: 500px;
+  top: 130px;
+  height: 100px;
+  cursor: pointer;
+}
+
+.new-map__img--pin1 {
+  position: absolute;
+  content: url("../img/new_img/pin_white.png");
+  width: 100px;
+}
+
+.new-map__img--pin2 {
+  position: absolute;
+  content: url("../img/new_img/pin_white.png");
+  width: 100px;
+}
+
+.new-map__img--pin3 {
+  position: absolute;
+  content: url("../img/new_img/pin_white.png");
+  width: 100px;
+}
+
+.new-map__img--pin1-store {
+  position: absolute;
+  content: url("../img/new_img/gs25.png");
+  width: 80px;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, 0);
+}
+
+.new-map__img--pin2-store {
+  position: absolute;
+  content: url("../img/new_img/CU.png");
+  width: 60px;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, 0);
+}
+
+.new-map__img--pin3-store {
+  position: absolute;
+  content: url("../img/new_img/CU.png");
+  width: 60px;
+  left: 50%;
+  top: 10%;
+  transform: translate(-50%, 0);
+}
+
+/*예 아니오*/
+
+.yes-no-dialog2 {
+  position: absolute;
+  width: 150px;
+  height: 100px;
+  right: 100px;
+  bottom: 210px;
+  display: none;
+}
+
+.yes-no-dialog2__img--dialog-img {
+  position: absolute;
+  content: url("../img/new_img/text_box.png");
+  width: 150px;
+  height: 100px;
+}
+
+.yes-no-dialog2__p--yes {
+  position: absolute;
+  width: 30px;
+  top: 23px;
+  right: 10px;
+  font-family: "pocketmon";
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.yes-no-dialog2__p--no {
+  position: absolute;
+  width: 50px;
+  bottom: 23px;
+  right: 10px;
+  font-family: "pocketmon";
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.yes-no-dialog2__img--tri1 {
+  position: absolute;
+  content: url("../img/new_img/right_arrow.png");
+  width: 30px;
+  top: 23px;
+  left: 40px;
+  display: none;
+}
+
+.yes-no-dialog2__img--tri2 {
+  position: absolute;
+  content: url("../img/new_img/right_arrow.png");
+  width: 30px;
+  bottom: 17px;
+  left: 40px;
+  display: none;
+}
+/*예 아니오*/
+
+.map__circle {
+  display: none;
+  border-radius: 50%;
+  background-color: black;
+  width: 20px;
+  height: 20px;
+  margin-left: 35px;
+}
+
+.map__path--kul-to-lib {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  width: 350px;
+  height: 30px;
+  left: 380px;
+  top: 320px;
+  transform: rotate(200deg);
+}
+
+.map__path--lib-to-tech {
+  position: absolute;
+  display: flex;
+  justify-content: flex-start;
+  width: 350px;
+  height: 30px;
+  left: 320px;
+  top: 230px;
+  transform: rotate(-15deg);
+}
+
+.new-map__img--player {
+  position: absolute;
+  display: none;
+}

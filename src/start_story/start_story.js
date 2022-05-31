@@ -1,7 +1,8 @@
 oakTextArray = [
   "흐음!! 잘 왔다! 건국대학교에 온걸 환영한다!",
-  "내 이름은 오박사!",
+  "내 이름은 KU박사!",
   '이 세계에는 띠고 부치는 씰 줄여서 "띠부씰" 이라 불리는 스티커가 유행중이다!',
+  "나는 그런 띠부씰들을 얻기 위해 연구하고 있는 것이란다!",
   "그건 그렇고 이제 슬슬 자네에 대해 알아보도록 하지!",
   "자네는 남자인가? 여자인가? 아니면... 교수님이신가요?",
   "이제부터 띠부씰을 찾으러 가면 된다! 그럼 건국대로!",
@@ -27,10 +28,11 @@ $(window).ready(() => {
       }
     );
   }
+  loop(1);
 
   $(".person-message__img--next-img").on("click", function () {
     oakTextIndex += 1;
-    if (oakTextIndex == 6) {
+    if (oakTextIndex == 7) {
       $(".start-story__div--select-sex")
         .children()
         .each(function () {
@@ -66,7 +68,7 @@ $(window).ready(() => {
     }
 
     showStory(oakTextArray[oakTextIndex]);
-    if (oakTextIndex == 4) {
+    if (oakTextIndex == 5) {
       $(".start-story__div--select-sex").children().show();
       $(".person-message__img--next-img").hide();
     }
@@ -135,11 +137,10 @@ $(window).ready(() => {
       $(".start-story__div--select-sex").children().show();
       $(this).css("position", "static").show();
       $(".yes-no-dialog").show();
-      showStory(oakTextArray[4]);
+      showStory(oakTextArray[5]);
       $(".yes-no-dialog").hide();
     });
 
-  loop(1);
   showStartStoryDisplay();
 });
 
@@ -164,7 +165,7 @@ showStory = (string) => {
     */
 };
 
-const animateTyping = (target, string, index) => {
+animateTyping = (target, string, index) => {
   if (index > string.length) return;
   else if (index == 0) target.html("");
   target.append(document.createTextNode(string.charAt(index)));

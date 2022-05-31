@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-
+<meta charset="utf-8" />
 <head>
-    <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="game_over.js"></script>
-    <script src="https://unpkg.com/typeit@8.5.4/dist/index.umd.js"></script>
+  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+  <script src="game_over.js"></script>
 
-    <link href="game_over.css" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet">
+  <link href="game_over.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap"
+    rel="stylesheet"
+  />
 </head>
 <body>
-    <div class="game-over">
-        <div class="game-over__wrapper">
-            <div class="game-over__dr-oak">
-                <img class="game-over__img--dr-oak-img">
-                <p class="game-over__msg--dr-oak-msg"></p>
-            </div>
-            
-            <div class="game-over__ui">
-                <p class="game-over__msg--game-over-message">GAME OVER</p>
-                <input type="button" value="메인메뉴로 돌아가기" class="game-over__button--show-main">
-            </div>
-        </div>
+  <div class="game-over">
+    <div class="game-over__wrapper">
+      <div class="game-over__ui">
+        <p class="game-over__msg--game-over-message">GAME OVER</p>
+      </div>
+      <div class="person-message">
+        <img class="person-message__img--person-img" />
+        <img class="person-message__img--message-box" />
+        <p class="person-message__p--message"></p>
+        <img class="person-message__img--next-img3" />
+      </div>
     </div>
+  </div>
 </body>

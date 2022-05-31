@@ -12,57 +12,91 @@
   --ti-cursor-font-size: 0;
 }
 
+body {
+  background-color: #d5f2ca;
+}
+
 .game-over {
-  background-image: url("../../img/ending/background.png");
+  width: 100%;
   height: 100vh;
-  display: none;
 }
 
 .game-over__wrapper {
   position: relative;
-  width: 1200px;
-  height: 800px;
   margin: auto;
+  width: 1200px;
+  height: 100%;
 }
 
-.game-over__dr-oak {
-  position: relative;
-  top: 200px;
-}
+/* 대사 */
 
-.game-over__img--dr-oak-img {
+.person-message {
   position: absolute;
-  content: url("../../img/ending/crying_oak.png");
+  width: 1000px;
   height: 400px;
-  opacity: 0.7;
-}
-
-.game-over__msg--dr-oak-msg {
-  position: absolute;
-  color: white;
-  top: 100px;
-  left: 200px;
-  font-size: 30px;
-  font-family: "pocketmon";
-}
-
-.game-over__button--show-main {
-  position: absolute;
-  top: 80%;
   left: 50%;
   transform: translate(-50%, 0);
-  width: 300px;
-  height: 70px;
-  font-size: 25px;
-  background-color: white;
-  border: 0;
-  border-radius: 5px;
+  bottom: 0;
 }
+
+.person-message__p--message {
+  position: absolute;
+  width: 800px;
+  line-height: 200px;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  font-family: "pocketmon";
+  font-size: 25px;
+}
+
+.person-message__img--person-img {
+  position: absolute;
+}
+
+.person-message__img--message-box {
+  position: absolute;
+  content: url("../../img/new_img/text_box.png");
+  width: 800px;
+  height: 200px;
+  right: 0;
+  bottom: 0;
+}
+
+.person-message__img--next-img3 {
+  position: absolute;
+  content: url("../../img/new_img/down_arrow.png");
+  right: 5px;
+  bottom: 0px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.s0-img {
+  content: url("../../img/new_img/s0.png");
+  height: 400px;
+}
+
+.s1-img {
+  content: url("../../img/new_img/s1.png");
+  height: 400px;
+}
+
+.s2-img {
+  content: url("../../img/new_img/s2.png");
+  height: 400px;
+}
+
+:root {
+  --ti-cursor-font-size: 0;
+}
+
+/* 대사 */
 
 .game-over__msg--game-over-message {
   position: absolute;
   color: white;
-  top: 50%;
+  top: 20%;
   left: 50%;
   width: 700px;
   transform: translate(-50%, 0);
