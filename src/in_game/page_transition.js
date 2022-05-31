@@ -570,14 +570,31 @@ const attackCollisionHandler = () => {
 };
 const collisionHandler = () => {
 	if (paddleCollisionDetect()) {
-		onHitPaddle(); // 신경 쓰지 말것
+		onHitPaddle();
+		
+		let paddle_length = paddleStatus.posX + paddleStatus.width;
+		let first_part = paddleStatus.posX + paddle_length/5;
+		let last_part = paddle_length - paddle_length/5;
 
-		// 부딪힌 부분에 따라서 if-else 처리
-		// 중앙에 부딛히면 입사각 그대로 반사각이됨
-		// --- -------- ---
-		// | pos.x         | pos.x + width
-		// 끝에 3개에 맞으면 눞히게 반사됨.
-		ballStatus.dy = -ballStatus.dy;
+		if (ballStatus.dx >= 0) {
+			if (ballStatus.posX > last_part && ballStatus.posX <= paddle_length) {
+				ballStatus.dx = 6;
+				ballStatus.dy = -2;
+			}
+			else {
+				ballStatus.dx = 4;
+				ballStatus.dy = -4;
+			}
+		} else {
+			if (ballStatus.posX >= paddleStatus.posX && ballStatus.posX <= first_part) {
+				ballStatus.dx = -6;
+				ballStatus.dy = -2;
+			}
+			else {
+				ballStatus.dx = -4;
+				ballStatus.dy = -4;
+			}
+		}
 	}
 
 	if (wallCollisionDetect() == 1) {
