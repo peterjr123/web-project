@@ -87,7 +87,7 @@ const onKillNormalBlock = () => {
 	setScore(normalBrick.score * userStatus.combo + userStatus.score);
 
 	brickContainer.brickCount -= 1;
-	if (brickContainer.brickCount <= 5) {
+	if (gameStatus.stageLevel != 3 && brickContainer.brickCount <= 30) {
 		onStageClear();
 	}
 
@@ -499,10 +499,10 @@ const brickCollisionDetect = (brick) => {
 	const brickCenterY = brick.posY + brick.height / 2;
 	// 충돌 했는가?
 	if (
-		ballStatus.posX >= brick.posX - ballStatus.radius / 2 &&
-		ballStatus.posX <= brick.posX + brick.width + ballStatus.radius / 2 &&
-		ballStatus.posY >= brick.posY - ballStatus.radius / 2 &&
-		ballStatus.posY <= brick.posY + brick.height + ballStatus.radius / 2
+		ballStatus.posX >= brick.posX - ballStatus.radius &&
+		ballStatus.posX <= brick.posX + brick.width + ballStatus.radius &&
+		ballStatus.posY >= brick.posY - ballStatus.radius &&
+		ballStatus.posY <= brick.posY + brick.height + ballStatus.radius
 	) {
 		// 위 아래 충돌이 일어나면, 원의 중심은 x축 기준으로는 블록 안에 들어있지만, y축 기준으로는 블록 바깥에 존재한다.
 		// 반대로 좌우 충돌이 일어나면 x축 기준으로, 원의 중심이 바깥에 존재한다.
@@ -611,12 +611,16 @@ const setStageInitialStatus = () => {
 	// 4. bricks 배열 비우기
 	bricks = [];
 };
-const setGameInitialStatus = () => {
-	// 매 게임(world)를 시작하기 전에 게임을 초기화
-	// 1. user status
+const resetUserStatus = () => {
 	userStatus.maxHP = 3;
 	setScore(0);
 	userStatus.ballDamage = 1;
+}
+const setGameInitialStatus = () => {
+	// 매 게임(world)를 시작하기 전에 게임을 초기화
+	// 1. user status
+	resetUserStatus();
+	
 	// 2. bar status
 	paddleStatus.width = 75;
 	// 3. 다른 status?
