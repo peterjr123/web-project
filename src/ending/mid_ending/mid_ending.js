@@ -74,7 +74,7 @@ animateTyping = (target, string, index) => {
 };
 
 const typingMidEnding = () => {
-  str = "와!! 그런데 내가 원하는 스티커가 아니야... 다음 편의점으로 가보자!";
+  str = "에이.. 내가 원하는 스티커가 아니야... 다음 편의점으로 가보자!";
   clearInterval(typing);
   $(".person-message__p--message").html("");
   animateTyping($(".person-message__p--message"), str, 0);

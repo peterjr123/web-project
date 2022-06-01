@@ -382,14 +382,14 @@ const setBossAttacks = () => {
 	bossAttack.height = 100;
 
 	if (gameStatus.gameLevel == 1) {
-		bossAttack.maxCoolDown = 100;
+		bossAttack.maxCoolDown = 150;
 		bossAttack.dy = 5;
 	} else if (gameStatus.gameLevel == 2) {
-		bossAttack.maxCoolDown = 50;
+		bossAttack.maxCoolDown = 100;
 		bossAttack.dy = 7;
 	} else {
-		bossAttack.maxCoolDown = 10;
-		bossAttack.dy = 10;
+		bossAttack.maxCoolDown = 70;
+		bossAttack.dy = 7;
 	}
 };
 const bossAttackDrawing = () => {
