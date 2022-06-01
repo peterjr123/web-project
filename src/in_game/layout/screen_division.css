@@ -1,36 +1,36 @@
 /* 사람마다 정의가 다를 수 있으므로 주의! */
 * {
-	margin: 0;
-	padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 /* ---------------------- 기본 정적 레이아웃------------------ */
 #game-page {
-	display: none;
+  display: none;
 }
 /* 전체 게임화면 분할 */
 #game-page__content-wrapper {
-	display: flex;
-	height: 500px;
-	background-image: url("../../img/in_game/bg.jpg");
-	background-size: cover;
+  display: flex;
+  height: 500px;
+  background-image: url("../../img/new_img/friendlyShop_erased.png");
+  background-size: cover;
 }
 #game-page__content-wrapper > div:nth-child(1) {
-	flex-basis: 170px;
-	flex-grow: 1.5;
+  flex-basis: 170px;
+  flex-grow: 1.5;
 }
 #game-page__content-wrapper > div:nth-child(2) {
-	border: 3px solid #ffc000;
-	flex-basis: 600px;
-	flex-grow: 7;
-	background-color: rgba(0, 0, 0, 0.7);
+  border: 3px solid #ffc000;
+  flex-basis: 600px;
+  flex-grow: 7;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 #game-page__content-wrapper > div:nth-child(3) {
-	flex-basis: 170px;
-	flex-grow: 1.5;
-	background-color: rgba(0, 0, 0, 0.7);
+  flex-basis: 170px;
+  flex-grow: 1.5;
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 #game-page__flying-pokemon-bread {
-	position: absolute;
+  position: absolute;
 }

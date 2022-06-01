@@ -1,19 +1,24 @@
 const soundOnOff = (muted) => {
 	globalAudio.bossBattleAudio.muted = muted;
-	globalAudio.clickAudio.muted = muted;
 	globalAudio.finalLevelClear.muted = muted;
 	globalAudio.middleLevelClear.muted = muted;
-	globalAudio.onDamageTaken.muted = muted;
-	globalAudio.stageClearAudio.muted = muted;
-	globalAudio.ballHitAudio.muted = muted;
-	globalAudio.brickBreakAudio.muted = muted;
+
 	globalAudio.gameoverAudio.muted = muted;
-	globalAudio.moveMap.muted = muted;
+	globalAudio.startStory.muted = muted;
+	globalAudio.newMap.muted = muted;
 
 	globalAudio.normalStage[0].muted = muted;
 	globalAudio.normalStage[1].muted = muted;
 	globalAudio.normalStage[2].muted = muted;
 	globalAudio.normalStage[3].muted = muted;
+};
+
+const effectOnOff = (muted) => {
+	globalAudio.clickAudio.muted = muted;
+	globalAudio.onDamageTaken.muted = muted;
+	globalAudio.stageClearAudio.muted = muted;
+	globalAudio.ballHitAudio.muted = muted;
+	globalAudio.brickBreakAudio.muted = muted;
 };
 
 $(document).ready(function () {
@@ -23,7 +28,7 @@ $(document).ready(function () {
 		$("#main_page").css("display", "none");
 	});
 
-	$("#setting_btn").click(function () {
+	$(".purple-button").click(function () {
 		$("#option_page").addClass("popup");
 		$("#option_page").css("display", "block");
 	});
@@ -93,6 +98,8 @@ $(document).ready(function () {
 		music3.pause();
 		music4.pause();
 		ex_music.pause();
+
+		effectOnOff(false);
 		ex_effect.currentTime = 1;
 		ex_effect.play();
 	});
@@ -103,14 +110,16 @@ $(document).ready(function () {
 		music4.pause();
 		ex_music.pause();
 		ex_effect.pause();
+
+		effectOnOff(true);
 	});
 
-	$("#htp_btn").click(function () {
+	$(".red-button").click(function () {
 		$("#howtoplay_page").addClass("popup");
 		$("#howtoplay_page").css("display", "block");
 	});
 
-	$("#credit_btn").click(function () {
+	$(".claret-button").click(function () {
 		$("#credit_page").addClass("popup");
 		$("#credit_page").css("display", "block");
 	});

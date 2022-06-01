@@ -1,0 +1,85 @@
+@font-face {
+  font-family: "pocketmon";
+  src: url("../gsc.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  border: 0;
+}
+
+.main-menu {
+  background-image: url("../img/new_img/main.png");
+  width: 100%;
+  height: 100vh;
+}
+
+.main-menu__wrapper {
+  position: relative;
+  margin: auto;
+  width: 1200px;
+  height: 100%;
+}
+
+.main-menu__img--logo {
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+  content: url("../img/new_img/logo.png");
+}
+
+.main-menu__div--button {
+  position: relative;
+  width: 200px;
+  height: 80px;
+}
+
+.main-menu__img--button {
+  position: absolute;
+  width: 200px;
+  height: 80px;
+}
+
+.orange-button img {
+  content: url("../img/new_img/orange_btn.png");
+  filter: drop-shadow(10px 10px 10px black);
+}
+
+.purple-button img {
+  content: url("../img/new_img/purple_btn.png");
+  filter: drop-shadow(10px 10px 10px black);
+}
+
+.red-button img {
+  content: url("../img/new_img/red_btn.png");
+  filter: drop-shadow(10px 10px 10px black);
+}
+
+.claret-button img {
+  content: url("../img/new_img/claret_btn.png");
+  filter: drop-shadow(10px 10px 10px black);
+}
+
+.main-menu__div--button-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  right: 100px;
+  top: 50%;
+  transform: translate(0, -50%);
+  height: 400px;
+}
+
+.pocketmon-text {
+  position: absolute;
+  font-family: "pocketmon";
+  width: 200px;
+  line-height: 80px;
+  text-align: center;
+  font-size: 27px;
+}
