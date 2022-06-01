@@ -1,417 +1,397 @@
 <!DOCTYPE html>
 <head>
-  <script
-    src="https://code.jquery.com/jquery-3.6.0.js"
-    integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-    crossorigin="anonymous"
-  ></script>
-  <script>
-    var onStartGame;
-    var showEnding;
-    var showGameOver;
-    var showMainDisplay;
-    var showMap;
-    var makeMEPath;
-    var makeEVPath;
-    var showPocketmon;
-    var onSelectStage;
-    var game_music;
-    var showStartStoryDisplay;
-    var showNewMap;
-    var showNewMapPath;
-    var characterIndex;
-    var typing;
-    var currentLevel;
+	<script
+		src="https://code.jquery.com/jquery-3.6.0.js"
+		integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
+		crossorigin="anonymous"
+	></script>
+	<script>
+		var onStartGame;
+		var showEnding;
+		var showGameOver;
+		var showMainDisplay;
+		var showMap;
+		var makeMEPath;
+		var makeEVPath;
+		var showPocketmon;
+		var onSelectStage;
+		var game_music;
+		var showStartStoryDisplay;
+		var showNewMap;
+		var showNewMapPath;
+		var characterIndex;
+		var typing;
+		var currentLevel;
 
-    let globalAudio = {
-      bossBattleAudio: {},
-      clickAudio: {},
-      finalLevelClear: {},
-      middleLevelClear: {},
-      normalStage: [],
-      onDamageTaken: {},
-      stageClearAudio: {},
-      ballHitAudio: {},
-      brickBreakAudio: {},
-      gameoverAudio: {},
-      startStory: {},
-      newMap: {},
-    };
-  </script>
-  <div>
-    <!-- in-game css -->
-    <link rel="stylesheet" href="./in_game/layout/screen_division.css" />
-    <link rel="stylesheet" href="./in_game/layout/right_sidebar.css" />
-    <link rel="stylesheet" href="./in_game/layout/reward_scene.css" />
-    <link rel="stylesheet" href="./in_game/layout/game_canvas.css" />
+		let globalAudio = {
+			bossBattleAudio: {},
+			clickAudio: {},
+			finalLevelClear: {},
+			middleLevelClear: {},
+			normalStage: [],
+			onDamageTaken: {},
+			stageClearAudio: {},
+			ballHitAudio: {},
+			brickBreakAudio: {},
+			gameoverAudio: {},
+			startStory: {},
+			newMap: {},
+		};
+	</script>
+	<div>
+		<!-- in-game css -->
+		<link rel="stylesheet" href="./in_game/layout/screen_division.css" />
+		<link rel="stylesheet" href="./in_game/layout/right_sidebar.css" />
+		<link rel="stylesheet" href="./in_game/layout/reward_scene.css" />
+		<link rel="stylesheet" href="./in_game/layout/game_canvas.css" />
 
-    <!-- in game js -->
-    <script src="./in_game/page_transition.js"></script>
-  </div>
-  <div>
-    <!-- ending js -->
-    <script src="./ending/map/map.js"></script>
-    <script src="./ending/final_ending/final_ending.js"></script>
-    <script src="./ending/mid_ending/mid_ending.js"></script>
-    <script src="./ending/game_over/game_over.js"></script>
-    <script src="./new_main/new_main.js"></script>
-    <script src="./start_story/start_story.js"></script>
-    <script src="./new_map/new_map.js"></script>
+		<!-- in game js -->
+		<script src="./in_game/page_transition.js"></script>
+	</div>
+	<div>
+		<!-- ending js -->
+		<script src="./ending/map/map.js"></script>
+		<script src="./ending/final_ending/final_ending.js"></script>
+		<script src="./ending/mid_ending/mid_ending.js"></script>
+		<script src="./ending/game_over/game_over.js"></script>
+		<script src="./new_main/new_main.js"></script>
+		<script src="./start_story/start_story.js"></script>
+		<script src="./new_map/new_map.js"></script>
 
-    <!-- ending css -->
-    <link href="./ending/map/map.css" rel="stylesheet" />
-    <link href="./ending/final_ending/final_ending.css" rel="stylesheet" />
-    <link href="./ending/mid_ending/mid_ending.css" rel="stylesheet" />
-    <link href="./ending/game_over/game_over.css" rel="stylesheet" />
-    <link href="./new_main/new_main.css" rel="stylesheet" />
-    <link href="./start_story/start_story.css" rel="stylesheet" />
-    <link href="./new_map/new_map.css" rel="stylesheet" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap"
-      rel="stylesheet"
-    />
-  </div>
-  <div>
-    <link
-      href="https://fonts.googleapis.com/css?family=Russo+One"
-      rel="stylesheet"
-    />
-    <link href="loading-page.css" rel="stylesheet" />
-  </div>
-  <div>
-    <!-- main_display css, js -->
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="./main_display/main_display.css"
-    />
-    <script
-      type="text/javascript"
-      src="./main_display/main_display.js"
-    ></script>
-  </div>
-  <div>
-    <script type="text/javascript" src="./sound.js"></script>
-  </div>
+		<!-- ending css -->
+		<link href="./ending/map/map.css" rel="stylesheet" />
+		<link href="./ending/final_ending/final_ending.css" rel="stylesheet" />
+		<link href="./ending/mid_ending/mid_ending.css" rel="stylesheet" />
+		<link href="./ending/game_over/game_over.css" rel="stylesheet" />
+		<link href="./new_main/new_main.css" rel="stylesheet" />
+		<link href="./start_story/start_story.css" rel="stylesheet" />
+		<link href="./new_map/new_map.css" rel="stylesheet" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap" rel="stylesheet" />
+	</div>
+	<div>
+		<link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet" />
+		<link href="loading-page.css" rel="stylesheet" />
+	</div>
+	<div>
+		<!-- main_display css, js -->
+		<link rel="stylesheet" type="text/css" href="./main_display/main_display.css" />
+		<script type="text/javascript" src="./main_display/main_display.js"></script>
+	</div>
+	<div>
+		<script type="text/javascript" src="./sound.js"></script>
+	</div>
 </head>
 <body onselectstart="return false">
-  <div class="loading-page">
-    <div class="loading-page__content-wrapper">
-      <svg viewBox="0 0 1320 300">
-        <text x="50%" y="50%" dy=".35em" text-anchor="middle">SY corp.</text>
-      </svg>
-    </div>
-  </div>
-  <div id="game-page">
-    <div id="game-page__content-wrapper">
-      <div id="game-page__empty-sidebar"></div>
-      <div id="game-page__game-scene">
-        <canvas id="game-page__canvas"></canvas>
-        <div id="game-page__reward-scene">
-          <div id="game-page__reward-scene--title">
-            <p>Stage Clear!!</p>
-            <p>보상을 선택하세요!</p>
-          </div>
-          <div id="game-page__reward-wrapper">
-            <div class="reward-box">
-              <p>볼 업그레이드</p>
-              <div class="reward-img-wrapper" onclick="onSelectUpgrade('ball')">
-                <img
-                  src="./img/in_game/마스터볼-removebg-preview (2).png"
-                  width="100px"
-                />
-              </div>
-              <p>데미지 증가</p>
-            </div>
+	<div class="loading-page">
+		<div class="loading-page__content-wrapper">
+			<svg viewBox="0 0 1320 300">
+				<text x="50%" y="50%" dy=".35em" text-anchor="middle">SY corp.</text>
+			</svg>
+		</div>
+	</div>
+	<div id="game-page">
+		<div id="game-page__content-wrapper">
+			<div id="game-page__empty-sidebar"></div>
+			<div id="game-page__game-scene">
+				<canvas id="game-page__canvas"></canvas>
+				<div id="game-page__reward-scene">
+					<div id="game-page__reward-scene--title">
+						<p>Stage Clear!!</p>
+						<p>보상을 선택하세요!</p>
+					</div>
+					<div id="game-page__reward-wrapper">
+						<div class="reward-box">
+							<p>볼 업그레이드</p>
+							<div class="reward-img-wrapper" onclick="onSelectUpgrade('ball')">
+								<img src="./img/in_game/마스터볼-removebg-preview (2).png" width="100px" />
+							</div>
+							<p>데미지 증가</p>
+						</div>
 
-            <!-- 추후에 코드 삭제하고, js로 추가, 삭제 연산 구현 -->
-            <div class="reward-box">
-              <p>체력 업그레이드</p>
-              <div class="reward-img-wrapper" onclick="onSelectUpgrade('hp')">
-                <img src="./img/in_game/heart.png" width="100px" />
-              </div>
-              <p>최대 체력 1 증가</p>
-            </div>
-            <div class="reward-box">
-              <p>바 업그레이드</p>
-              <div class="reward-img-wrapper" onclick="onSelectUpgrade('bar')">
-                <img src="./img/in_game/stretch.png" width="120px" />
-              </div>
-              <p>바의 길이 증가</p>
-            </div>
-          </div>
-        </div>
-      </div>
+						<!-- 추후에 코드 삭제하고, js로 추가, 삭제 연산 구현 -->
+						<div class="reward-box">
+							<p>체력 업그레이드</p>
+							<div class="reward-img-wrapper" onclick="onSelectUpgrade('hp')">
+								<img src="./img/in_game/heart.png" width="100px" />
+							</div>
+							<p>최대 체력 1 증가</p>
+						</div>
+						<div class="reward-box">
+							<p>바 업그레이드</p>
+							<div class="reward-img-wrapper" onclick="onSelectUpgrade('bar')">
+								<img src="./img/in_game/stretch.png" width="120px" />
+							</div>
+							<p>바의 길이 증가</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-      <div id="game-page__sidebar">
-        <div id="game-page__user-status">
-          <div id="game-page__heart-container-wrapper">
-            <img src="./img/in_game/heart.png" width="60px" />
-            <img src="./img/in_game/heart.png" width="60px" />
-            <img src="./img/in_game/heart.png" width="60px" />
-          </div>
-          <p id="game-page__user-score">스코어: 0</p>
-          <p id="game-page__user-combo-count">Combo: 0</p>
-        </div>
-        <div id="game-page__current-planet">
-          <p>현재 탐색중...</p>
-          <div>
-            <img src="./img/in_game/금성-removebg-preview.png" width="140px" />
-            <img src="./img/in_game/target.png" width="30px" />
-          </div>
-        </div>
-      </div>
-    </div>
+			<div id="game-page__sidebar">
+				<div id="game-page__user-status">
+					<div id="game-page__heart-container-wrapper">
+						<img src="./img/in_game/heart.png" width="60px" />
+						<img src="./img/in_game/heart.png" width="60px" />
+						<img src="./img/in_game/heart.png" width="60px" />
+					</div>
+					<p id="game-page__user-score">스코어: 0</p>
+					<p id="game-page__user-combo-count">Combo: 0</p>
+				</div>
+				<div id="game-page__current-planet">
+					<p>현재 탐색중...</p>
+					<div>
+						<img src="./img/in_game/금성-removebg-preview.png" width="140px" />
+						<img src="./img/in_game/target.png" width="30px" />
+					</div>
+				</div>
+			</div>
+		</div>
 
-    <div id="game-page__flying-pokemon-bread"></div>
-  </div>
+		<div id="game-page__flying-pokemon-bread"></div>
+	</div>
 
-  <div class="mid-ending">
-    <div class="mid-ending__wrapper">
-      <div class="mid-ending__pocketmon-seal">
-        <img class="mid-ending__img--pocketmon-img" />
-        <img class="mid-ending__img--halo-img" />
-      </div>
+	<div class="mid-ending">
+		<div class="mid-ending__wrapper">
+			<div class="mid-ending__pocketmon-seal">
+				<img class="mid-ending__img--pocketmon-img" />
+				<img class="mid-ending__img--halo-img" />
+			</div>
 
-      <div class="person-message">
-        <img class="person-message__img--person-img" />
-        <img class="person-message__img--message-box" />
-        <p class="person-message__p--message"></p>
-        <img class="person-message__img--next-img-mid" />
-      </div>
-    </div>
-  </div>
+			<div class="person-message">
+				<img class="person-message__img--person-img" />
+				<img class="person-message__img--message-box" />
+				<p class="person-message__p--message"></p>
+				<img class="person-message__img--next-img-mid" />
+			</div>
+		</div>
+	</div>
 
-  <div class="game-over">
-    <div class="game-over__wrapper">
-      <div class="game-over__ui">
-        <p class="game-over__msg--game-over-message">GAME OVER</p>
-      </div>
-      <div class="person-message">
-        <img class="person-message__img--person-img" />
-        <img class="person-message__img--message-box" />
-        <p class="person-message__p--message"></p>
-        <img class="person-message__img--next-img3" />
-      </div>
-    </div>
-  </div>
+	<div class="game-over">
+		<div class="game-over__wrapper">
+			<div class="game-over__ui">
+				<p class="game-over__msg--game-over-message">GAME OVER</p>
+			</div>
+			<div class="person-message">
+				<img class="person-message__img--person-img" />
+				<img class="person-message__img--message-box" />
+				<p class="person-message__p--message"></p>
+				<img class="person-message__img--next-img3" />
+			</div>
+		</div>
+	</div>
 
-  <!-- menu display html -->
-  <div class="main-menu">
-    <div class="main-menu__wrapper">
-      <img class="main-menu__img--logo" />
-      <div class="main-menu__div--button-wrapper">
-        <div class="main-menu__div--button orange-button">
-          <img class="main-menu__img--button" />
-          <p class="main-menu__text pocketmon-text">게임 시작!</p>
-        </div>
-        <div class="main-menu__div--button purple-button">
-          <img class="main-menu__img--button" />
-          <p class="main-menu__text pocketmon-text">게임 설정</p>
-        </div>
-        <div class="main-menu__div--button red-button">
-          <img class="main-menu__img--button" />
-          <p class="main-menu__text pocketmon-text">조작 방법</p>
-        </div>
-        <div class="main-menu__div--button claret-button">
-          <img class="main-menu__img--button" />
-          <p class="main-menu__text pocketmon-text">크레딧</p>
-        </div>
-      </div>
-    </div>
-  </div>
+	<!-- menu display html -->
+	<div class="main-menu">
+		<div class="main-menu__wrapper">
+			<img class="main-menu__img--logo" />
+			<div class="main-menu__div--button-wrapper">
+				<div class="main-menu__div--button orange-button">
+					<img class="main-menu__img--button" />
+					<p class="main-menu__text pocketmon-text">게임 시작!</p>
+				</div>
+				<div class="main-menu__div--button purple-button">
+					<img class="main-menu__img--button" />
+					<p class="main-menu__text pocketmon-text">게임 설정</p>
+				</div>
+				<div class="main-menu__div--button red-button">
+					<img class="main-menu__img--button" />
+					<p class="main-menu__text pocketmon-text">조작 방법</p>
+				</div>
+				<div class="main-menu__div--button claret-button">
+					<img class="main-menu__img--button" />
+					<p class="main-menu__text pocketmon-text">크레딧</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
-  <div class="start-story">
-    <div class="start-story__wrapper">
-      <img class="start-story__img--map-img" />
-      <div class="person-message">
-        <img class="person-message__img--person-img oak-img" />
-        <img class="person-message__img--message-box" />
-        <p class="person-message__p--message"></p>
-        <img class="person-message__img--next-img" />
-      </div>
-      <div class="start-story__div--select-sex">
-        <img class="start-story__img--select-sex-man" id="0" />
-        <img class="start-story__img--select-sex-woman" id="1" />
-        <img class="start-story__img--select-sex-dr" id="2" />
-      </div>
-      <div class="yes-no-dialog">
-        <img class="yes-no-dialog__img--dialog-img" />
-        <img class="yes-no-dialog__img--tri1" />
-        <p class="yes-no-dialog__p--yes">예</p>
-        <img class="yes-no-dialog__img--tri2" />
-        <p class="yes-no-dialog__p--no">아니오</p>
-      </div>
-    </div>
-  </div>
+	<div class="start-story">
+		<div class="start-story__wrapper">
+			<img class="start-story__img--map-img" />
+			<div class="person-message">
+				<img class="person-message__img--person-img oak-img" />
+				<img class="person-message__img--message-box" />
+				<p class="person-message__p--message"></p>
+				<img class="person-message__img--next-img" />
+			</div>
+			<div class="start-story__div--select-sex">
+				<img class="start-story__img--select-sex-man" id="0" />
+				<img class="start-story__img--select-sex-woman" id="1" />
+				<img class="start-story__img--select-sex-dr" id="2" />
+			</div>
+			<div class="yes-no-dialog">
+				<img class="yes-no-dialog__img--dialog-img" />
+				<img class="yes-no-dialog__img--tri1" />
+				<p class="yes-no-dialog__p--yes">예</p>
+				<img class="yes-no-dialog__img--tri2" />
+				<p class="yes-no-dialog__p--no">아니오</p>
+			</div>
+		</div>
+	</div>
 
-  <div class="new-map">
-    <div class="new-map__wrapper">
-      <img class="new-map__img--map-img" />
-      <div class="person-message">
-        <img class="person-message__img--person-img" />
-        <img class="person-message__img--message-box" />
-        <p class="person-message__p--message"></p>
-      </div>
-      <div class="new-map__div--pin-wrapper">
-        <div class="new-map__div--pin1-wrapper">
-          <img class="new-map__img--pin1" />
-          <img class="new-map__img--pin1-store" />
-          <p class="new-map__p--pin1-text"></p>
-        </div>
-        <div class="new-map__div--pin2-wrapper">
-          <img class="new-map__img--pin2" />
-          <img class="new-map__img--pin2-store" />
-          <p class="new-map__p--pin2-text"></p>
-        </div>
-        <div class="new-map__div--pin3-wrapper">
-          <img class="new-map__img--pin3" />
-          <img class="new-map__img--pin3-store" />
-          <p class="new-map__p--pin3-text"></p>
-        </div>
-      </div>
-      <div class="yes-no-dialog2">
-        <img class="yes-no-dialog2__img--dialog-img" />
-        <img class="yes-no-dialog2__img--tri1" />
-        <p class="yes-no-dialog2__p--yes">예</p>
-        <img class="yes-no-dialog2__img--tri2" />
-        <p class="yes-no-dialog2__p--no">아니오</p>
-      </div>
-      <img class="new-map__img--player" />
-      <div class="new-map__path">
-        <div class="new-map__path--kul-to-lib">
-          <img class="new-map__circle" />
-          <img class="new-map__circle" />
-          <img class="new-map__circle" />
-          <img class="new-map__circle" />
-          <img class="new-map__circle" />
-          <img class="new-map__circle" />
-        </div>
-        <div class="new-map__path--lib-to-tech">
-          <img class="new-map__circle" />
-          <img class="new-map__circle" />
-          <img class="new-map__circle" />
-          <img class="new-map__circle" />
-          <img class="new-map__circle" />
-          <img class="new-map__circle" />
-        </div>
-      </div>
-    </div>
-  </div>
+	<div class="new-map">
+		<div class="new-map__wrapper">
+			<img class="new-map__img--map-img" />
+			<div class="person-message">
+				<img class="person-message__img--person-img" />
+				<img class="person-message__img--message-box" />
+				<p class="person-message__p--message"></p>
+			</div>
+			<div class="new-map__div--pin-wrapper">
+				<div class="new-map__div--pin1-wrapper">
+					<img class="new-map__img--pin1" />
+					<img class="new-map__img--pin1-store" />
+					<p class="new-map__p--pin1-text"></p>
+				</div>
+				<div class="new-map__div--pin2-wrapper">
+					<img class="new-map__img--pin2" />
+					<img class="new-map__img--pin2-store" />
+					<p class="new-map__p--pin2-text"></p>
+				</div>
+				<div class="new-map__div--pin3-wrapper">
+					<img class="new-map__img--pin3" />
+					<img class="new-map__img--pin3-store" />
+					<p class="new-map__p--pin3-text"></p>
+				</div>
+			</div>
+			<div class="yes-no-dialog2">
+				<img class="yes-no-dialog2__img--dialog-img" />
+				<img class="yes-no-dialog2__img--tri1" />
+				<p class="yes-no-dialog2__p--yes">예</p>
+				<img class="yes-no-dialog2__img--tri2" />
+				<p class="yes-no-dialog2__p--no">아니오</p>
+			</div>
+			<img class="new-map__img--player" />
+			<div class="new-map__path">
+				<div class="new-map__path--kul-to-lib">
+					<img class="new-map__circle" />
+					<img class="new-map__circle" />
+					<img class="new-map__circle" />
+					<img class="new-map__circle" />
+					<img class="new-map__circle" />
+					<img class="new-map__circle" />
+				</div>
+				<div class="new-map__path--lib-to-tech">
+					<img class="new-map__circle" />
+					<img class="new-map__circle" />
+					<img class="new-map__circle" />
+					<img class="new-map__circle" />
+					<img class="new-map__circle" />
+					<img class="new-map__circle" />
+				</div>
+			</div>
+		</div>
+	</div>
 
-  <div class="final-ending">
-    <div class="final-ending__wrapper">
-      <div class="final-ending__pocketmon-seal">
-        <img class="final-ending__img--pocketmon-img" />
-        <img class="final-ending__img--halo-img" />
-      </div>
+	<div class="final-ending">
+		<div class="final-ending__wrapper">
+			<div class="final-ending__pocketmon-seal">
+				<img class="final-ending__img--pocketmon-img" />
+				<img class="final-ending__img--halo-img" />
+			</div>
 
-      <div class="person-message">
-        <img class="person-message__img--person-img" />
-        <img class="person-message__img--message-box" />
-        <p class="person-message__p--message"></p>
-        <img class="person-message__img--next-img-final" />
-      </div>
-    </div>
-  </div>
-  <div class="menu_page" id="option_page">
-    <div id="outbox1">
-      <div id="outbox2">
-        <div id="header">
-          <div id="title">OPTION</div>
-          <img
-            class="close_btn"
-            id="close_btn1"
-            src="./main_display/close_btn.png"
-          />
-        </div>
-        <div id="opt1">
-          <h2>music select</h2>
-          <div>
-            music 1<input
-              type="radio"
-              name="music-select"
-              id="music1"
-              checked
-            />
-            music 2<input type="radio" name="music-select" id="music2" /> music
-            3<input type="radio" name="music-select" id="music3" /> music
-            4<input type="radio" name="music-select" id="music4" />
-          </div>
-        </div>
-        <div id="opt2">
-          <h2>music sound</h2>
-          <div>
-            On<input type="radio" name="music-onoff" id="music_on" checked />
-            Off<input type="radio" name="music-onoff" id="music_off" />
-          </div>
-        </div>
-        <div id="opt3">
-          <h2>effect sound</h2>
-          <div>
-            On<input type="radio" name="effect-onoff" id="effect_on" checked />
-            Off<input type="radio" name="effect-onoff" id="effect_off" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="menu_page" id="howtoplay_page">
-    <div id="outbox1">
-      <div id="outbox2">
-        <div id="header">
-          <div id="title">How To Play</div>
-          <img
-            class="close_btn"
-            id="close_btn2"
-            src="./main_display/close_btn.png"
-          />
-        </div>
-        <div id="content">
-          <ol>
-            <li>내용입니다.</li>
-            <br />
-            <li>내용입니다.</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="menu_page" id="credit_page">
-    <div id="outbox1">
-      <div id="outbox2">
-        <div id="header">
-          <div id="title">CREDIT</div>
-          <img
-            class="close_btn"
-            id="close_btn3"
-            src="./main_display/close_btn.png"
-          />
-        </div>
-        <div id="content">
-          <h3>Producted By</h3>
-          <p>김수환, 김유빈, 박준석, 한슬기</p>
-          <hr />
-          <br /><br />
-          <h3>Team Leader</h3>
-          <p>박준석</p>
-          <hr />
-          <br /><br />
-          <h3>Presented By</h3>
-          <p>
-            건국대학교, 건국우유, 레스티오, 스타벅스, 뚜레쥬르, 사임당화장품,
-            카카오, 네이버
-          </p>
-          <p style="font-size: 10px">(위 내용은 비공식입니다)</p>
-          <hr />
-          <br /><br />
-        </div>
-      </div>
-    </div>
-  </div>
-  <!--
+			<div class="person-message">
+				<img class="person-message__img--person-img" />
+				<img class="person-message__img--message-box" />
+				<p class="person-message__p--message"></p>
+				<img class="person-message__img--next-img-final" />
+			</div>
+		</div>
+	</div>
+	<div class="menu_page" id="option_page">
+		<div id="outbox1">
+			<div id="outbox2">
+				<div id="header">
+					<div id="title">OPTION</div>
+					<img class="close_btn" id="close_btn1" src="./main_display/close_btn.png" />
+				</div>
+				<div id="opt1">
+					<h2>music select</h2>
+					<div>
+						music 1<input type="radio" name="music-select" id="music1" checked /> music 2<input
+							type="radio"
+							name="music-select"
+							id="music2"
+						/>
+						music 3<input type="radio" name="music-select" id="music3" /> music 4<input type="radio" name="music-select" id="music4" />
+					</div>
+				</div>
+				<div id="opt2">
+					<h2>music sound</h2>
+					<div>
+						On<input type="radio" name="music-onoff" id="music_on" checked /> Off<input type="radio" name="music-onoff" id="music_off" />
+					</div>
+				</div>
+				<div id="opt3">
+					<h2>effect sound</h2>
+					<div>
+						On<input type="radio" name="effect-onoff" id="effect_on" checked /> Off<input
+							type="radio"
+							name="effect-onoff"
+							id="effect_off"
+						/>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="menu_page" id="howtoplay_page">
+		<div id="outbox1">
+			<div id="outbox2">
+				<div id="header">
+					<div id="title">How To Play</div>
+					<img class="close_btn" id="close_btn2" src="./main_display/close_btn.png" />
+				</div>
+				<div id="content">
+					<ol>
+						<li>
+							체력: 처음에 사용자에게 3개의 하트가 주어진다. 공이 바닥에 닿거나, 보스의 공격이 바에 닿으면 하트가 하나씩 줄어든다.
+							하트가 모두 사라지면 게임이 종료된다.
+						</li>
+						<br />
+						<li>
+							강화: 일반 스테이지를 클리어하면 공을 강화할 수 있는 3가지 선택지가 주어진다. 한 번에 한 개만 선택할 수 있으며 해당
+							이미지를 마우스로 클릭하면 강화할 수 있다. 클릭 후 바로 다음 스테이지로 넘어간다. 쉬움, 보통 난이도의 업그레이드는 어려움
+							난이도에도 적용된다.
+						</li>
+						<br />
+						<li>
+							콤보: 체력이 깎이지 않고 연속으로 벽돌을 깨면 콤보가 올라가게 된다. 벽돌을 깰 때마다 스코어가 올라가는데, 콤보가 높을수록
+							많이 올라간다.
+						</li>
+					</ol>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="menu_page" id="credit_page">
+		<div id="outbox1">
+			<div id="outbox2">
+				<div id="header">
+					<div id="title">CREDIT</div>
+					<img class="close_btn" id="close_btn3" src="./main_display/close_btn.png" />
+				</div>
+				<div id="content">
+					<h3>Producted By</h3>
+					<p>김수환, 김유빈, 박준석, 한슬기</p>
+					<hr />
+					<br /><br />
+					<h3>Team Leader</h3>
+					<p>박준석</p>
+					<hr />
+					<br /><br />
+					<h3>Presented By</h3>
+					<p>건국대학교, 건국우유, 레스티오, 스타벅스, 뚜레쥬르, 사임당화장품, 카카오, 네이버</p>
+					<p style="font-size: 10px">(위 내용은 비공식입니다)</p>
+					<hr />
+					<br /><br />
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--
   <div id="main_display">
     
 		<div id="main_page">
