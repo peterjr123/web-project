@@ -462,6 +462,8 @@ const onHitBossBlock = (brick) => {
 	console.log("Hit boss block!!");
 };
 const onHitBossAttack = () => {
+	if (characterIndex == 2) return; // 교수님 모드
+
 	globalAudio.onDamageTaken.play();
 	setUserHP(userStatus.currentHP - 1);
 	setCombo(0);
@@ -549,8 +551,6 @@ const attackCollisionDetect = (attack) => {
 	return true;
 };
 const attackCollisionHandler = () => {
-	if (characterIndex == 2) return; // 교수님 모드
-
 	for (let i = 0; i < bossAttack.attacks.length; i++) {
 		const att = bossAttack.attacks[i];
 		if (!att.active) continue;
