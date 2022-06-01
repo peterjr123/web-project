@@ -1,7 +1,3 @@
-let currentLevel = 1;
-characterIndex = 2;
-typing = null;
-
 const showMainMenu = () => {
   $(".game-over").hide();
   $(".final-ending").hide();
