@@ -1,0 +1,182 @@
+@font-face {
+  font-family: "pocketmon";
+  src: url("../gsc.ttf");
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #d5f2ca;
+}
+
+.start-story {
+  display: none;
+  width: 100%;
+  height: 100vh;
+}
+
+.start-story__wrapper {
+  position: relative;
+  margin: auto;
+  width: 1200px;
+  height: 100%;
+}
+
+.start-story__img--map-img {
+  position: absolute;
+  content: url("../img/new_img/new_map.png");
+  width: 1000px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  filter: blur(10px);
+}
+
+/* 대사 */
+
+.person-message {
+  position: absolute;
+  width: 1000px;
+  height: 400px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  bottom: 0;
+}
+
+.person-message__p--message {
+  position: absolute;
+  width: 800px;
+  line-height: 200px;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  font-family: "pocketmon";
+  font-size: 25px;
+}
+
+.person-message__img--person-img {
+  position: absolute;
+}
+
+.person-message__img--message-box {
+  position: absolute;
+  content: url("../img/new_img/text_box.png");
+  width: 800px;
+  height: 200px;
+  right: 0;
+  bottom: 0;
+}
+
+.person-message__img--next-img {
+  position: absolute;
+  content: url("../img/new_img/down_arrow.png");
+  right: 5px;
+  bottom: 0px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.oak-img {
+  content: url("../img/new_img/oak.png");
+  height: 400px;
+}
+
+:root {
+  --ti-cursor-font-size: 0;
+}
+
+/* 대사 */
+
+/* 성별 */
+.start-story__div--select-sex {
+  display: flex;
+  justify-content: space-evenly;
+  position: absolute;
+  width: 700px;
+  height: 240px;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%, 0);
+}
+
+.start-story__img--select-sex-man {
+  content: url("../img/new_img/s0.png");
+  width: 150px;
+  display: none;
+  cursor: pointer;
+}
+
+.start-story__img--select-sex-woman {
+  content: url("../img/new_img/s1.png");
+  width: 150px;
+  display: none;
+  cursor: pointer;
+}
+
+.start-story__img--select-sex-dr {
+  content: url("../img/new_img/s2.png");
+  width: 150px;
+  display: none;
+  cursor: pointer;
+}
+
+/*  */
+
+/*예 아니오*/
+
+.yes-no-dialog {
+  position: absolute;
+  width: 150px;
+  height: 100px;
+  right: 100px;
+  bottom: 210px;
+  display: none;
+}
+
+.yes-no-dialog__img--dialog-img {
+  position: absolute;
+  content: url("../img/new_img/text_box.png");
+  width: 150px;
+  height: 100px;
+}
+
+.yes-no-dialog__p--yes {
+  position: absolute;
+  width: 30px;
+  top: 23px;
+  right: 10px;
+  font-family: "pocketmon";
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.yes-no-dialog__p--no {
+  position: absolute;
+  width: 50px;
+  bottom: 23px;
+  right: 10px;
+  font-family: "pocketmon";
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.yes-no-dialog__img--tri1 {
+  position: absolute;
+  content: url("../img/new_img/right_arrow.png");
+  width: 30px;
+  top: 23px;
+  left: 40px;
+  display: none;
+}
+
+.yes-no-dialog__img--tri2 {
+  position: absolute;
+  content: url("../img/new_img/right_arrow.png");
+  width: 30px;
+  bottom: 17px;
+  left: 40px;
+  display: none;
+}
+/*예 아니오*/

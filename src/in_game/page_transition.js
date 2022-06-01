@@ -165,11 +165,7 @@ const ballImgSrc = [
 	"./img/in_game/레벨볼-removebg-preview.png",
 	"./img/in_game/마스터볼-removebg-preview (2).png",
 ];
-const planetImgSrc = [
-	"./img/in_game/금성-removebg-preview.png",
-	"./img/in_game/지구-removebg-preview.png",
-	"./img/in_game/화성-removebg-preview.png",
-];
+const planetImgSrc = ["./img/new_img/gs_kul_house.png", "./img/new_img/cu_library.png", "./img/new_img/cu_hak.png"];
 const bossImgSrc = [
 	"./img/in_game/롱스톤-removebg-preview.png",
 	"./img/in_game/피카츄-removebg-preview.png",
@@ -620,9 +616,9 @@ const setStageInitialStatus = () => {
 	ballStatus.posX = canvas.width / 2;
 	ballStatus.posY = canvas.height - 100;
 	ballStatus.dx = ballStatus.dx;
-	ballStatus.dy = -ballStatus.dy;
+	ballStatus.dy = ballStatus.dy < 0 ? ballStatus.dy : -ballStatus.dy;
 	ballStatus.img = new Image();
-	ballStatus.img.src = ballImgSrc[userStatus.ballDamage - 1];
+	ballStatus.img.src = userStatus.ballDamage <= 3 ? ballImgSrc[userStatus.ballDamage - 1] : ballImgSrc[2];
 	// 2. 현재 목숨을 full로
 	setUserHP(userStatus.maxHP);
 	// 3. combo 수치 0으로 변경
@@ -644,6 +640,15 @@ const setGameInitialStatus = () => {
 
 	// 2. user score
 	setScore(0);
+
+	// 3. 블럭 체력 설정
+	if (gameStatus.gameLevel == 1) {
+		bossBrick.maxHP = 10;
+	} else if (gameStatus.gameLevel == 2) {
+		bossBrick.maxHP = 20;
+	} else {
+		bossBrick.maxHP = 30;
+	}
 
 	// 3. 다른 status?
 
