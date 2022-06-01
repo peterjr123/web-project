@@ -24,7 +24,6 @@ const showMainMenu = () => {
 };*/
 
 const showFinalStory = (string) => {
-  $(".final-ending__pocketmon-seal").css("top", "-300px");
   clearInterval(typing);
   $(".person-message__p--message").html("");
 
@@ -52,6 +51,7 @@ animateTyping = (target, string, index) => {
 };
 
 const initFinalEnding = () => {
+  $(".final-ending__pocketmon-seal").css("top", "-300px");
   globalAudio.finalLevelClear.currentTime = 0;
   globalAudio.finalLevelClear.play();
   myTextIndex = 0;
