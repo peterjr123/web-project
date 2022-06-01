@@ -91,7 +91,7 @@ const onKillNormalBlock = () => {
 	setScore(normalBrick.score * userStatus.combo + userStatus.score);
 
 	brickContainer.brickCount -= 1;
-	if (gameStatus.stageLevel != 3 && brickContainer.brickCount <= 30) {
+	if (gameStatus.stageLevel != 3 && brickContainer.brickCount <= 10) {
 		onStageClear();
 	}
 
