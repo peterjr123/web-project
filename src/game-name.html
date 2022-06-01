@@ -316,98 +316,142 @@
       </div>
     </div>
   </div>
+
   <div class="menu_page" id="option_page">
-    <div id="outbox1">
-      <div id="outbox2">
-        <div id="header">
-          <div id="title">OPTION</div>
-          <img
-            class="close_btn"
-            id="close_btn1"
-            src="./main_display/close_btn.png"
-          />
-        </div>
-        <div id="opt1">
-          <h2>music select</h2>
-          <div>
-            music 1<input
-              type="radio"
-              name="music-select"
-              id="music1"
-              checked
-            />
-            music 2<input type="radio" name="music-select" id="music2" /> music
-            3<input type="radio" name="music-select" id="music3" /> music
-            4<input type="radio" name="music-select" id="music4" />
+    <img class="menu-page__img--menu-img" />
+    <div class="menu-page__div--wrapper">
+      <div id="header">
+        <div id="title">OPTION</div>
+        <img
+          class="close_btn"
+          id="close_btn1"
+          src="./main_display/close_btn.png"
+        />
+      </div>
+      <div class="menu-page__div--option-wrapper">
+        <div class="menu-page__div--option1-wrapper">
+          <div id="opt1">
+            <h2 class="menu-page__h2--title1">music select</h2>
+            <div>
+              music 1<input
+                type="radio"
+                name="music-select"
+                id="music1"
+                checked
+              />
+              music 2<input type="radio" name="music-select" id="music2" />
+              music 3<input type="radio" name="music-select" id="music3" />
+              music 4<input type="radio" name="music-select" id="music4" />
+            </div>
           </div>
         </div>
-        <div id="opt2">
-          <h2>music sound</h2>
-          <div>
-            On<input type="radio" name="music-onoff" id="music_on" checked />
-            Off<input type="radio" name="music-onoff" id="music_off" />
+        <div class="menu-page__div--option2-wrapper">
+          <div id="opt2">
+            <h2>music sound</h2>
+            <div>
+              On<input type="radio" name="music-onoff" id="music_on" checked />
+              Off<input type="radio" name="music-onoff" id="music_off" />
+            </div>
           </div>
         </div>
-        <div id="opt3">
-          <h2>effect sound</h2>
-          <div>
-            On<input type="radio" name="effect-onoff" id="effect_on" checked />
-            Off<input type="radio" name="effect-onoff" id="effect_off" />
+        <div class="menu-page__div--option3-wrapper">
+          <div id="opt3">
+            <h2>effect sound</h2>
+            <div>
+              On<input
+                type="radio"
+                name="effect-onoff"
+                id="effect_on"
+                checked
+              />
+              Off<input type="radio" name="effect-onoff" id="effect_off" />
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
   <div class="menu_page" id="howtoplay_page">
-    <div id="outbox1">
-      <div id="outbox2">
-        <div id="header">
-          <div id="title">How To Play</div>
-          <img
-            class="close_btn"
-            id="close_btn2"
-            src="./main_display/close_btn.png"
-          />
+    <img class="menu-page__img--menu-img" />
+    <div class="menu-page__div--wrapper">
+      <div id="header">
+        <div id="title">How To Play</div>
+        <img
+          class="close_btn"
+          id="close_btn2"
+          src="./main_display/close_btn.png"
+        />
+      </div>
+      <div id="content">
+        <div>
+          <h2>1. 게임 시작</h2>
+          <p>
+            사용자가 메인 화면에서 게임시작 버튼을 누르면, 오박사의 대사가
+            시작된다. 세 가지 난이도를 선택할 수 있으며 맵을 이동하는
+            애니메이션이 실행되고 벽돌 깨기 게임이 시작된다.
+          </p>
         </div>
-        <div id="content">
-          <ol>
-            <li>내용입니다.</li>
-            <br />
-            <li>내용입니다.</li>
-          </ol>
+        <br />
+
+        <div>
+          <h2>2. 조작법</h2>
+          <p>
+            게임이 시작되면 공이 자동으로 움직이기 시작한다. 공을 튀기는 바는
+            마우스 포인터를 따라다니며 별도로 클릭할 필요는 없다.
+          </p>
+        </div>
+        <br />
+        <div>
+          <h2>3. 게임 규칙</h2>
+          <p>
+            1. 체력 처음에 사용자에게 3개의 하트가 주어진다. 공이 바닥에 닿거나,
+            보스의 공격이 바에 닿으면 하트가 하나씩 줄어든다. 하트가 모두
+            사라지면 게임이 종료된다.
+          </p>
+          <p>
+            2. 강화 일반 스테이지를 클리어하면 공을 강화할 수 있는 3가지
+            선택지가 주어진다. 한 번에 한 개만 선택할 수 있으며 해당 이미지를
+            마우스로 클릭하면 강화할 수 있다. 클릭 후 바로 다음 스테이지로
+            넘어간다.
+          </p>
+          <p>
+            3. 콤보 체력이 깎이지 않고 연속으로 벽돌을 깨면 콤보가 올라가게
+            된다. 벽돌을 깰 때마다 스코어가 올라가는데, 콤보가 높을수록 많이
+            올라간다.
+          </p>
         </div>
       </div>
     </div>
   </div>
+
   <div class="menu_page" id="credit_page">
-    <div id="outbox1">
-      <div id="outbox2">
-        <div id="header">
-          <div id="title">CREDIT</div>
-          <img
-            class="close_btn"
-            id="close_btn3"
-            src="./main_display/close_btn.png"
-          />
-        </div>
-        <div id="content">
-          <h3>Producted By</h3>
-          <p>김수환, 김유빈, 박준석, 한슬기</p>
-          <hr />
-          <br /><br />
-          <h3>Team Leader</h3>
-          <p>박준석</p>
-          <hr />
-          <br /><br />
-          <h3>Presented By</h3>
-          <p>
-            건국대학교, 건국우유, 레스티오, 스타벅스, 뚜레쥬르, 사임당화장품,
-            카카오, 네이버
-          </p>
-          <p style="font-size: 10px">(위 내용은 비공식입니다)</p>
-          <hr />
-          <br /><br />
-        </div>
+    <img class="menu-page__img--menu-img" />
+    <div class="menu-page__div--wrapper">
+      <div id="header">
+        <div id="title">CREDIT</div>
+        <img
+          class="close_btn"
+          id="close_btn3"
+          src="./main_display/close_btn.png"
+        />
+      </div>
+      <div id="content">
+        <h3>Producted By</h3>
+        <p>김수환, 김유빈, 박준석, 한슬기</p>
+        <hr />
+        <br /><br />
+        <h3>Team Leader</h3>
+        <p>박준석</p>
+        <hr />
+        <br /><br />
+        <h3>Presented By</h3>
+        <p>
+          건국대학교, 건국우유, 레스티오, 스타벅스, 뚜레쥬르, 사임당화장품,
+          카카오, 네이버
+        </p>
+        <p style="font-size: 10px">(위 내용은 비공식입니다)</p>
+        <hr />
+        <br /><br />
       </div>
     </div>
   </div>

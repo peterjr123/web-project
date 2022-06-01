@@ -10,7 +10,7 @@ showGameOver = () => {
   $(".game-over").show();
   //   globalAudio.gameoverAudio.currentTime = 0;
   //   globalAudio.gameoverAudio.play();
-
+  initGameOver();
   typingGameOver();
 };
 
@@ -35,6 +35,25 @@ animateTyping = (target, string, index) => {
 };
 
 const initGameOver = () => {
+  var temp = "";
+  if (characterIndex == 0) {
+    temp = "0";
+  } else if (characterIndex == 1) {
+    temp = "1";
+  } else if (characterIndex == 2) {
+    temp = "2";
+  }
+  $(".person-message__img--person-img").css({
+    content: 'url("./img/new_img/s' + temp + '.png")',
+    height: "400px",
+  });
+  $(".person-message").show();
+
+  //$("person-message__img--next-img3").on("click", showMainMenu);
+  //globalAudio.clickAudio.play();
+};
+
+$(document).ready(() => {
   function loop(state) {
     $(".person-message__img--next-img3").animate(
       {
@@ -52,23 +71,4 @@ const initGameOver = () => {
     hideGameOver();
     showNewMap();
   });
-
-  var temp = "";
-  if (characterIndex == 0) {
-    temp = "0";
-  } else if (characterIndex == 1) {
-    temp = "1";
-  } else if (characterIndex == 2) {
-    temp = "2";
-  }
-  $(".person-message__img--person-img").css({
-    content: 'url("./img/new_img/s' + temp + '.png")',
-    height: "400px",
-  });
-  $(".person-message").show();
-  $(".new-map__img--player").addClass("s" + temp);
-  //$("person-message__img--next-img3").on("click", showMainMenu);
-  //globalAudio.clickAudio.play();
-};
-
-$(document).ready(initGameOver);
+});

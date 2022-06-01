@@ -122,51 +122,31 @@
   }
 }
 
-#outbox1 {
-  border-radius: 50px;
-  background-color: black;
-  opacity: 0.85;
-  width: 1037px;
-  height: 732px;
-}
-
-#outbox2 {
-  border-radius: 50px;
-  border: 1px solid yellow;
-  background-color: black;
-  opacity: 0.85;
-  width: 1015px;
-  height: 707px;
-  position: relative;
-  top: 10px;
-  left: 10px;
-}
-
 #header {
   position: relative;
   top: 10px;
-  left: 10px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 1000px;
+  height: 70px;
 }
 
 #title {
+  position: absolute;
   display: inline-block;
   border-radius: 5px;
-  border: 1px solid lightgoldenrodyellow;
+  border: 1px solid black;
   width: 200px;
   height: 60px;
-  color: white;
-  font-size: 35px;
+  color: black;
+  font-size: 25px;
   text-align: center;
   line-height: 60px;
-  margin: 10px 10px;
-  float: left;
-}
-
-.close_btn {
-  width: 90px;
-  height: 90px;
-  margin-left: 680px;
-  float: left;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 100;
+  top: 10px;
+  font-family: "pocketmon";
 }
 
 #outbox2 > div:nth-child(n + 2) > h2 {
@@ -186,19 +166,17 @@
   font-size: 20px;
 }
 
-#content > ol {
-  margin-left: 20px;
-}
-
-#content li {
-  color: white;
+#content p {
   font-size: 20px;
 }
 
 #content {
-  float: left;
-  margin-left: 40px;
-  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  top: 150px;
+  color: black;
+  font-family: "pocketmon";
 }
 
 .popup {
@@ -253,4 +231,86 @@
 
 .next_page {
   z-index: 1;
+}
+
+#howtoplay_page {
+  position: absolute;
+  left: 50%;
+  width: 1000px;
+  height: 800px;
+  transform: translate(-50%, 0);
+}
+
+#credit_page {
+  position: absolute;
+  left: 50%;
+  width: 1000px;
+  height: 800px;
+  transform: translate(-50%, 0);
+}
+
+#option_page {
+  position: absolute;
+  left: 50%;
+  width: 1000px;
+  height: 800px;
+  transform: translate(-50%, 0);
+}
+
+.menu-page__img--menu-img {
+  position: absolute;
+  content: url("../img/new_img/optionPage.png");
+  z-index: 3;
+  width: 1000px;
+  height: 800px;
+}
+
+.menu-page__div--wrapper {
+  width: 1000px;
+  height: 800px;
+  position: absolute;
+  z-index: 3;
+}
+
+.close_btn {
+  z-index: 1000;
+  position: absolute;
+  right: 50px;
+  top: 50px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.menu-page__div--option-wrapper {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  top: 200px;
+  height: 300px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-family: "pocketmon";
+}
+
+.menu-page__div--option1-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-page__div--option2-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.menu-page__div--option3-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+h2 {
+  text-align: center;
+  font-size: 30px;
+  font-family: "pocketmon";
 }
