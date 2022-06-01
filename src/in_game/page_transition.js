@@ -388,7 +388,7 @@ const setBossAttacks = () => {
 		bossAttack.maxCoolDown = 100;
 		bossAttack.dy = 7;
 	} else {
-		bossAttack.maxCoolDown = 70;
+		bossAttack.maxCoolDown = 30;
 		bossAttack.dy = 7;
 	}
 };
@@ -433,6 +433,7 @@ const onUpgradeHealth = () => {
 
 // --------------------- collision -------------------
 const onHitGround = () => {
+	if (characterIndex == 2) return;
 	setUserHP(userStatus.currentHP - 1);
 	setCombo(0);
 	console.log("hit ground!!");
@@ -548,6 +549,8 @@ const attackCollisionDetect = (attack) => {
 	return true;
 };
 const attackCollisionHandler = () => {
+	if (characterIndex == 2) return; // 교수님 모드
+
 	for (let i = 0; i < bossAttack.attacks.length; i++) {
 		const att = bossAttack.attacks[i];
 		if (!att.active) continue;
@@ -649,6 +652,9 @@ const setGameInitialStatus = () => {
 	} else {
 		bossBrick.maxHP = 30;
 	}
+
+	// 4. 교수님 모드
+	// 보스 공격 판정 skip
 
 	// 3. 다른 status?
 
